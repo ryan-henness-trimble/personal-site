@@ -1,0 +1,7 @@
+{
+    "name": "personal-site",
+    "short_name": "personal-site",
+    "start_url": "/",
+    "display": "standalone",
+    "orientation": "portrait"
+}
