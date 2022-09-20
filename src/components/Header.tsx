@@ -20,7 +20,7 @@ const Header = (props: Props): JSX.Element => {
     }, []);
 
     const handleTabChange = (tabId: string) => {
-        const offset = getAbsoluteTabScrollOffset(tabId);
+        const offset = getAbsoluteTabScrollOffset(tabId) - 300;
         window.scrollTo({
             top: offset,
             behavior: 'smooth',
@@ -32,19 +32,19 @@ const Header = (props: Props): JSX.Element => {
         const bodyRect = document.body.getBoundingClientRect();
         const tabRect = document.querySelector(`#${tabId}`)?.getBoundingClientRect();
 
-        return tabRect ? tabRect?.top - bodyRect.top - 200 : 0;
+        return tabRect ? tabRect?.top - bodyRect.top : 0;
     };
 
     const getTabScrollOffset = (tabId: string) => {
         const tabRect = document.querySelector(`#${tabId}`)?.getBoundingClientRect();
 
-        return tabRect ? tabRect?.top - 200 : 0;
+        return tabRect ? tabRect?.top : 0;
     };
 
     const updateCurrentTab = useCallback(() => {
-        const navbarOffset = getTabScrollOffset('nav');
+        const navbarOffset = getTabScrollOffset('nav') - 300;
         props.tabs.forEach((tab) => {
-            if (getTabScrollOffset(tab.id) - navbarOffset < 250) {
+            if (getTabScrollOffset(tab.id) - 300 - navbarOffset < 250) {
                 props.onSetTab(tab.id);
             }
         });
@@ -58,8 +58,14 @@ const Header = (props: Props): JSX.Element => {
     return (
         <Fragment>
             <Socials>
-                <Icon src="assets/icons/icon_github.png" onClick={() => window.open('https://github.com/ryan-henness-trimble')} />
-                    <Icon src="assets/icons/icon_linkedin.png" onClick={() => window.open('https://www.linkedin.com/in/ryan-henness')} />
+                <Icon
+                    src="assets/icons/icon_github.png"
+                    onClick={() => window.open('https://github.com/ryan-henness-trimble')}
+                />
+                <Icon
+                    src="assets/icons/icon_linkedin.png"
+                    onClick={() => window.open('https://www.linkedin.com/in/ryan-henness')}
+                />
             </Socials>
             <HeadshotContainer>
                 <Headshot src="assets/headshot.png" />
@@ -67,7 +73,10 @@ const Header = (props: Props): JSX.Element => {
             <Name>Ryan Henness</Name>
             <Navbar id="nav" showShadow={scrolled}>
                 {props.tabs.map((tab) => (
-                    <Button isActive={tab.id === props.currentTabId} key={tab.id} onClick={() => handleTabChange(tab.id)}>
+                    <Button
+                        isActive={tab.id === props.currentTabId}
+                        key={tab.id}
+                        onClick={() => handleTabChange(tab.id)}>
                         {tab.display}
                     </Button>
                 ))}
@@ -87,6 +96,7 @@ const Socials = styled.div`
     position: sticky;
     top: 0;
     width: 100%;
+    z-index: 1;
 `;
 
 const Icon = styled.img`
@@ -115,13 +125,14 @@ const HeadshotContainer = styled.div`
 `;
 
 const Headshot = styled.img`
+    border: 4px solid #648feb;
     border-radius: 50%;
     box-shadow: 0px 5px 28px 1px rgba(0, 0, 0, 0.25);
     height: ${(props) => (props.hide ? '30px' : '200px')};
     margin-bottom: var(--rem-8px);
     transition: height 0.3s ease-in, width 0.3s ease-in;
     width: ${(props) => (props.hide ? '0px' : '200px')};
-    z-index: 2;
+    z-index: 5;
 `;
 
 const Name = styled.div`
@@ -135,7 +146,7 @@ const Name = styled.div`
     position: sticky;
     text-transform: uppercase;
     top: 36px;
-    z-index: 1;
+    z-index: 4;
 `;
 
 const Navbar = styled.div<{ showShadow?: boolean }>`
@@ -147,6 +158,7 @@ const Navbar = styled.div<{ showShadow?: boolean }>`
     position: sticky;
     top: 115px;
     transition: box-shadow 0.3s ease-in, width 0.3s ease-in;
+    z-index: 1;
 `;
 
 const Button = styled.div<{ isActive?: boolean }>`

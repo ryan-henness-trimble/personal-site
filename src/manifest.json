@@ -1,6 +1,6 @@
 {
-    "name": "personal-site",
-    "short_name": "personal-site",
+    "name": "Ryan Henness",
+    "short_name": "Ryan Henness",
     "start_url": "/",
     "display": "standalone",
     "orientation": "portrait"
