@@ -21,7 +21,6 @@ export default Section;
 const Container = styled.div`
     text-align: start;
     max-width: 26rem;
-    min-width: 26rem;
     min-height: 40rem;
     padding: 0 12px;
 `;
