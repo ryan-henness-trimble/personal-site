@@ -171,13 +171,15 @@ const Button = styled.div<{ isActive?: boolean }>`
     transition: background-color 0.3s ease-in;
     user-select: none;
 
-    &:hover {
-        background-color: #f6f6f6;
-        transition: background-color 0.1s ease-in;
-    }
-
     &:active {
         background-color: #eeeeee;
         transition: background-color 0.1s ease-in;
+    }
+
+    @media (min-width: 450px) {
+        &:hover {
+            background-color: #f6f6f6;
+            transition: background-color 0.1s ease-in;
+        }
     }
 `;

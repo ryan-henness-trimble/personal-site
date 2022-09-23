@@ -17,7 +17,8 @@ const Section = (props: Props) => (
 export default Section;
 
 const Container = styled.div`
-    max-width: 26rem;
+    max-width: 30rem;
+    padding: 0 var(--rem-12px);
 `;
 
 const Title = styled.div`
@@ -45,6 +46,6 @@ const Text = styled.div`
 const SectionDivider = styled.div`
     background-color: #eaeaea;
     height: 1px;
-    margin: 24px auto;
+    margin: var(--rem-32px) auto;
     width: 178px;
 `;
