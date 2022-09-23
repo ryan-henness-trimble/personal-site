@@ -125,9 +125,9 @@ const HeadshotContainer = styled.div`
 `;
 
 const Headshot = styled.img`
-    border: 4px solid #648feb;
+    border: var(--rem-4px) solid #648feb;
     border-radius: 50%;
-    box-shadow: 0px 5px 28px 1px rgba(0, 0, 0, 0.25);
+    box-shadow: var(--rem-0px) var(--rem-4px) var(--rem-28px) var(--rem-2px) rgba(0, 0, 0, 0.25);
     height: ${(props) => (props.hide ? '30px' : '200px')};
     margin-bottom: var(--rem-8px);
     transition: height 0.3s ease-in, width 0.3s ease-in;
@@ -140,12 +140,12 @@ const Name = styled.div`
     display: flex;
     justify-content: center;
     font-family: 'Roboto Flex', sans-serif;
-    font-size: 54px;
+    font-size: 3rem;
     font-weight: 700;
     padding-bottom: var(--rem-16px);
     position: sticky;
     text-transform: uppercase;
-    top: 36px;
+    top: 2.25rem;
     z-index: 4;
 `;
 
@@ -156,7 +156,7 @@ const Navbar = styled.div<{ showShadow?: boolean }>`
     justify-content: center;
     padding-bottom: var(--rem-24px);
     position: sticky;
-    top: 115px;
+    top: 6.8rem;
     transition: box-shadow 0.3s ease-in, width 0.3s ease-in;
     z-index: 1;
 `;
@@ -165,7 +165,7 @@ const Button = styled.div<{ isActive?: boolean }>`
     background-color: ${(props) => (props.isActive ? '#EBEBEB' : 'transparent')};
     border-radius: var(--rem-16px);
     cursor: pointer;
-    font-size: 18px;
+    font-size: var(--rem-18px);
     margin: 0 var(--rem-4px);
     padding: var(--rem-4px) var(--rem-14px);
     transition: background-color 0.3s ease-in;

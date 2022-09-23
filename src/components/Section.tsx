@@ -1,4 +1,4 @@
-import { h, ComponentChildren, Fragment } from 'preact';
+import { h, ComponentChildren } from 'preact';
 import styled from 'styled-components';
 
 interface Props {
@@ -8,21 +8,16 @@ interface Props {
 }
 
 const Section = (props: Props) => (
-    <Fragment>
-        <Container id={props.id} data-aos="fade-up" data-aos-duration="1200">
-            <Title>{props.title}</Title>
-            <Text>{props.children}</Text>
-        </Container>
+    <Container id={props.id} data-aos="fade-up" data-aos-duration="1200">
+        <Title>{props.title}</Title>
+        <Text>{props.children}</Text>
         <SectionDivider />
-    </Fragment>
+    </Container>
 );
 export default Section;
 
 const Container = styled.div`
-    text-align: start;
     max-width: 26rem;
-    min-height: 40rem;
-    padding: 0 12px;
 `;
 
 const Title = styled.div`
@@ -50,8 +45,6 @@ const Text = styled.div`
 const SectionDivider = styled.div`
     background-color: #eaeaea;
     height: 1px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 48px;
+    margin: 24px auto;
     width: 178px;
 `;

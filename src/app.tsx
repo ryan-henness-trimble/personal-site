@@ -46,16 +46,53 @@ const App = () => {
                 </Section>
                 <Section id="exp" title="Experience 😎">
                     <h2>Currently</h2>
-                    <div>I work at Trimble Viewpoint.</div>
+                    <div>
+                        I work at Trimble Viewpoint. Lorem ipsum dolor sit amet, consectetur
+                        adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                        officia deserunt mollit anim id est laborum.
+                    </div>
                     <h2>In the past</h2>
-                    <div>I used to work other places.</div>
+                    <div>
+                        I used to work other places. Lorem ipsum dolor sit amet, consectetur
+                        adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                        officia deserunt mollit anim id est laborum.
+                    </div>
                 </Section>
                 <Section id="skills" title="Skills 🔨">
-                    JavaScript/TypeScript, React/Angular, Stencil.js (web components), Styled
-                    Components, CSS, HTML
+                    <div>
+                        JavaScript/TypeScript, React/Angular, Stencil.js (web components), Styled
+                        Components, CSS, HTML.
+                    </div>
+                    <div>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </div>
                 </Section>
                 <Section title="About this site">
-                    This site was built using the Preact CLI, a light-weight alternative to React.
+                    <div>
+                        This site was built using the Preact CLI, a light-weight alternative to
+                        React.
+                    </div>
+                    <div>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </div>
                 </Section>
             </Content>
         </AppStyles>
