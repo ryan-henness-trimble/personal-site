@@ -8,7 +8,7 @@ interface Props {
 }
 
 const Section = (props: Props) => (
-    <Container id={props.id} data-aos="fade-up" data-aos-duration="1200">
+    <Container id={props.id} data-aos="fade-up" data-aos-duration="300">
         <Title>{props.title}</Title>
         <Text>{props.children}</Text>
         <SectionDivider />
@@ -23,29 +23,29 @@ const Container = styled.div`
 
 const Title = styled.div`
     font-family: 'Roboto Flex', sans-serif;
-    font-size: 32px;
+    font-size: 2rem;
     font-weight: 700;
-    margin-bottom: 16px;
+    margin-bottom: 1rem;
 `;
 
 const Text = styled.div`
     font-family: 'Roboto', sans-serif;
-    font-size: 18px;
+    font-size: 1.125rem;
 
     h2 {
-        font-size: 22px;
+        font-size: 1.375rem;
         font-weight: 700;
-        margin-bottom: 8px;
+        margin-bottom: 0.5rem;
     }
 
     div {
-        margin: 12px 0;
+        margin: var(--rem-12px) 0;
     }
 `;
 
 const SectionDivider = styled.div`
     background-color: #eaeaea;
-    height: 1px;
+    height: var(--rem-1px);
     margin: var(--rem-32px) auto;
-    width: 178px;
+    width: 11.125rem;
 `;

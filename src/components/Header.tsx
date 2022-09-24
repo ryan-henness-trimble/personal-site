@@ -9,6 +9,7 @@ interface Props {
 }
 
 const Header = (props: Props): JSX.Element => {
+    const [scrollIsBuffering, setScrollIsBuffering] = useState(false);
     const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
@@ -19,8 +20,9 @@ const Header = (props: Props): JSX.Element => {
         };
     }, []);
 
-    const handleTabChange = (tabId: string) => {
+    const handleTabClick = (tabId: string) => {
         const offset = getAbsoluteTabScrollOffset(tabId) - 300;
+        setScrollIsBuffering(true);
         window.scrollTo({
             top: offset,
             behavior: 'smooth',
@@ -44,7 +46,7 @@ const Header = (props: Props): JSX.Element => {
     const updateCurrentTab = useCallback(() => {
         const navbarOffset = getTabScrollOffset('nav') - 300;
         props.tabs.forEach((tab) => {
-            if (getTabScrollOffset(tab.id) - 300 - navbarOffset < 250) {
+            if (getTabScrollOffset(tab.id) - navbarOffset < 550) {
                 props.onSetTab(tab.id);
             }
         });
@@ -52,8 +54,10 @@ const Header = (props: Props): JSX.Element => {
 
     const handleWindowScroll = useCallback(() => {
         setScrolled(window.scrollY > 200);
-        updateCurrentTab();
-    }, [setScrolled, updateCurrentTab]);
+        if (!scrollIsBuffering) {
+            updateCurrentTab();
+        }
+    }, [setScrolled, scrollIsBuffering, updateCurrentTab]);
 
     return (
         <Fragment>
@@ -73,12 +77,12 @@ const Header = (props: Props): JSX.Element => {
             <Name>Ryan Henness</Name>
             <Navbar id="nav" showShadow={scrolled}>
                 {props.tabs.map((tab) => (
-                    <Button
+                    <NavTab
                         isActive={tab.id === props.currentTabId}
                         key={tab.id}
-                        onClick={() => handleTabChange(tab.id)}>
+                        onClick={() => handleTabClick(tab.id)}>
                         {tab.display}
-                    </Button>
+                    </NavTab>
                 ))}
             </Navbar>
         </Fragment>
@@ -128,10 +132,10 @@ const Headshot = styled.img`
     border: var(--rem-4px) solid #648feb;
     border-radius: 50%;
     box-shadow: var(--rem-0px) var(--rem-4px) var(--rem-28px) var(--rem-2px) rgba(0, 0, 0, 0.25);
-    height: ${(props) => (props.hide ? '30px' : '200px')};
+    height: ${(props) => (props.hide ? 'var(--rem-30px)' : '12.5rem')};
     margin-bottom: var(--rem-8px);
     transition: height 0.3s ease-in, width 0.3s ease-in;
-    width: ${(props) => (props.hide ? '0px' : '200px')};
+    width: ${(props) => (props.hide ? '0' : '12.5rem')};
     z-index: 5;
 `;
 
@@ -161,25 +165,21 @@ const Navbar = styled.div<{ showShadow?: boolean }>`
     z-index: 1;
 `;
 
-const Button = styled.div<{ isActive?: boolean }>`
-    background-color: ${(props) => (props.isActive ? '#EBEBEB' : 'transparent')};
-    border-radius: var(--rem-16px);
+const NavTab = styled.div<{ isActive?: boolean }>`
+    border-bottom: var(--rem-2px) solid ${(props) => (props.isActive ? '#262626' : 'transparent')};
     cursor: pointer;
     font-size: var(--rem-18px);
-    margin: 0 var(--rem-4px);
-    padding: var(--rem-4px) var(--rem-14px);
-    transition: background-color 0.3s ease-in;
+    margin: 0 var(--rem-16px);
+    padding: var(--rem-4px) 0;
     user-select: none;
 
     &:active {
-        background-color: #eeeeee;
-        transition: background-color 0.1s ease-in;
+        border-bottom: var(--rem-2px) solid #262626;
     }
 
     @media (min-width: 450px) {
-        &:hover {
-            background-color: #f6f6f6;
-            transition: background-color 0.1s ease-in;
+        &:hover:not(${(props) => !props.isActive}) {
+            border-bottom: var(--rem-1px) solid #262626;
         }
     }
 `;
