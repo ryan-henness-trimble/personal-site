@@ -22,7 +22,7 @@ const App = () => {
 
     return (
         <AppStyles>
-            <Header currentTabId={currentTabId} onSetTab={handleSetTab} tabs={tabs} />
+            <Header currentTabId={currentTabId} onSetCurrentTab={handleSetTab} tabs={tabs} />
             <Content>
                 <Section id="about" title="About 📝">
                     <div>

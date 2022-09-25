@@ -1,63 +1,64 @@
 import { h, Fragment } from 'preact';
 import { useEffect, useState, useCallback } from 'preact/hooks';
 import styled from 'styled-components';
+import debounce from 'lodash.debounce';
 
 interface Props {
     currentTabId: string;
-    onSetTab: (tabId: string) => void;
+    onSetCurrentTab: (tabId: string) => void;
     tabs: { id: string; display: string }[];
 }
 
 const Header = (props: Props): JSX.Element => {
-    const [scrollIsBuffering, setScrollIsBuffering] = useState(false);
+    const [lastWindowScrollY, setLastWindowScrollY] = useState(window.scrollY);
     const [scrolled, setScrolled] = useState(false);
-
-    useEffect(() => {
-        window.addEventListener('scroll', handleWindowScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleWindowScroll);
-        };
-    }, []);
+    const [shouldUpdateTabOnScroll, setShouldUpdateTabOnScroll] = useState(true);
 
     const handleTabClick = (tabId: string) => {
-        const offset = getAbsoluteTabScrollOffset(tabId) - 300;
-        setScrollIsBuffering(true);
+        props.onSetCurrentTab(tabId);
+        setShouldUpdateTabOnScroll(false);
         window.scrollTo({
-            top: offset,
+            top: getAbsoluteTabScrollOffset(tabId) - 300,
             behavior: 'smooth',
         });
-        props.onSetTab(tabId);
-    };
-
-    const getAbsoluteTabScrollOffset = (tabId: string) => {
-        const bodyRect = document.body.getBoundingClientRect();
-        const tabRect = document.querySelector(`#${tabId}`)?.getBoundingClientRect();
-
-        return tabRect ? tabRect?.top - bodyRect.top : 0;
-    };
-
-    const getTabScrollOffset = (tabId: string) => {
-        const tabRect = document.querySelector(`#${tabId}`)?.getBoundingClientRect();
-
-        return tabRect ? tabRect?.top : 0;
     };
 
     const updateCurrentTab = useCallback(() => {
         const navbarOffset = getTabScrollOffset('nav') - 300;
         props.tabs.forEach((tab) => {
             if (getTabScrollOffset(tab.id) - navbarOffset < 550) {
-                props.onSetTab(tab.id);
+                props.onSetCurrentTab(tab.id);
             }
         });
-    }, [props.tabs, props.onSetTab, getTabScrollOffset]);
+    }, [props]);
+
+    const handleTabUpdate = useCallback(() => {
+        if (shouldUpdateTabOnScroll) {
+            updateCurrentTab();
+        } else {
+            setShouldUpdateTabOnScroll(lastWindowScrollY === window.scrollY);
+        }
+    }, [shouldUpdateTabOnScroll, lastWindowScrollY, updateCurrentTab]);
 
     const handleWindowScroll = useCallback(() => {
         setScrolled(window.scrollY > 200);
-        if (!scrollIsBuffering) {
-            updateCurrentTab();
+        setLastWindowScrollY(window.scrollY);
+        if (shouldUpdateTabOnScroll) {
+            handleTabUpdate();
         }
-    }, [setScrolled, scrollIsBuffering, updateCurrentTab]);
+    }, [handleTabUpdate, shouldUpdateTabOnScroll]);
+
+    useEffect(() => {
+        if (shouldUpdateTabOnScroll) {
+            window.addEventListener('scroll', debounce(handleWindowScroll, 50));
+        }
+
+        return () => {
+            if (shouldUpdateTabOnScroll) {
+                window.removeEventListener('scroll', debounce(handleWindowScroll, 50));
+            }
+        };
+    }, [handleWindowScroll, shouldUpdateTabOnScroll]);
 
     return (
         <Fragment>
@@ -90,6 +91,19 @@ const Header = (props: Props): JSX.Element => {
 };
 
 export default Header;
+
+const getAbsoluteTabScrollOffset = (tabId: string) => {
+    const bodyRect = document.body.getBoundingClientRect();
+    const tabRect = document.querySelector(`#${tabId}`)?.getBoundingClientRect();
+
+    return tabRect ? tabRect?.top - bodyRect.top : 0;
+};
+
+const getTabScrollOffset = (tabId: string) => {
+    const tabRect = document.querySelector(`#${tabId}`)?.getBoundingClientRect();
+
+    return tabRect ? tabRect?.top : 0;
+};
 
 const Socials = styled.div`
     align-items: center;
