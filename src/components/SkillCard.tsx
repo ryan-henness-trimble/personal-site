@@ -1,8 +1,7 @@
-import { ComponentChildren, h } from 'preact';
+import { h } from 'preact';
 import styled from 'styled-components';
 
 interface Props {
-    children: ComponentChildren;
     color: {
         r: number;
         g: number;
@@ -21,10 +20,7 @@ const SkillCard = (props: Props) => {
             data-aos="fade-left"
             data-aos-duration="400">
             <img src={props.imageUrl} alt={props.title} />
-            <Details>
-                <span>{props.title}</span>
-                <div>{props.children}</div>
-            </Details>
+            <Details>{props.title}</Details>
         </Card>
     );
 };
@@ -42,25 +38,27 @@ const Card = styled.div<{ r: number; g: number; b: number }>`
     border: 1px solid #eaeaea;
     border-radius: 12px;
     box-shadow: 0 5px 28px 1px rgba(0, 0, 0, 0.06);
+    box-sizing: border-box;
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    padding: var(--rem-12px);
+    height: 3rem;
+    padding: var(--rem-4px) var(--rem-12px);
+    width: 100%;
 
     img {
         border-radius: 50%;
-        height: 100px;
+        height: var(--rem-32px);
         margin-right: var(--rem-12px);
-        width: 100px;
+        width: var(--rem-32px);
     }
 
     @media (max-width: 450px) {
         padding: var(--rem-6px);
 
         img {
-            height: 65px;
+            height: var(--rem-24px);
             margin-right: var(--rem-6px);
-            width: 65px;
+            width: var(--rem-24px);
         }
     }
 `;
@@ -68,13 +66,6 @@ const Card = styled.div<{ r: number; g: number; b: number }>`
 const Details = styled.div`
     display: flex;
     flex-direction: column;
+    font-size: 0.8rem;
     justify-content: center;
-
-    span {
-        font-size: 1.2rem;
-    }
-
-    div {
-        font-size: 1rem;
-    }
 `;

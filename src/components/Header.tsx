@@ -118,7 +118,7 @@ const Navbar = styled.div<{ showShadow?: boolean }>`
 `;
 
 const NavTab = styled.div<{ isActive?: boolean }>`
-    border-bottom: var(--rem-2px) solid ${(props) => (props.isActive ? '#262626' : 'transparent')};
+    border-bottom: var(--rem-2px) solid ${(props) => (props.isActive ? '#648feb' : 'transparent')};
     cursor: pointer;
     font-size: var(--rem-18px);
     margin: 0 var(--rem-16px);
@@ -126,12 +126,12 @@ const NavTab = styled.div<{ isActive?: boolean }>`
     user-select: none;
 
     &:active {
-        border-bottom: var(--rem-2px) solid #262626;
+        border-bottom: var(--rem-2px) solid #648feb;
     }
 
     @media (min-width: 450px) {
         &:hover:not(${(props) => !props.isActive}) {
-            border-bottom: var(--rem-1px) solid #262626;
+            border-bottom: var(--rem-1px) solid #648feb;
         }
     }
 `;

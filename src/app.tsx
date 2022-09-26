@@ -13,7 +13,7 @@ const App = () => {
         <AppStyles>
             <Header />
             <Content>
-                <Section id="about" title="About 📝">
+                <Section id="about" title="About 📝" light>
                     <div>
                         Hey, I’m Ryan 👋 I’m a developer based in Portland, Oregon. I graduated with
                         a Bachelor of Science in Computer Science from the University of Portland in
@@ -55,49 +55,42 @@ const App = () => {
                         officia deserunt mollit anim id est laborum.
                     </div>
                 </Section>
-                <Section id="skills" title="Skills 🔨">
+                <Section id="skills" title="Skills 🔨" light>
                     <div>
-                        <SkillCard
-                            color={{ r: 240, g: 219, b: 79 }}
-                            title="JavaScript, TypeScript"
-                            imageUrl="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/480px-Unofficial_JavaScript_logo_2.svg.png">
-                            Oh ya, I've got skills. Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                            magna aliqua.
-                        </SkillCard>
-                        <SkillCard
-                            color={{ r: 97, g: 219, b: 251 }}
-                            title="React"
-                            imageUrl="https://assets.stickpng.com/images/584830f5cef1014c0b5e4aa1.png">
-                            Oh ya, I've got skills. Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                            magna aliqua.
-                        </SkillCard>
-                        <SkillCard
-                            color={{ r: 221, g: 27, b: 22 }}
-                            title="Angular"
-                            imageUrl="https://cdn-images-1.medium.com/max/1200/1*nbJ41jD1-r2Oe6FsLjKaOg.png">
-                            Oh ya, I've got skills. Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                            magna aliqua.
-                        </SkillCard>
-                        <SkillCard
-                            color={{ r: 0, g: 0, b: 0 }}
-                            title="Stencil.js (Web Components)"
-                            imageUrl="https://marmelab.com/static/thumbnail-43b6f6df0f3a39ed1e5bffbd77c36f5b.png">
-                            Oh ya, I've got skills. Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                            magna aliqua.
-                        </SkillCard>
-                        <SkillCard
-                            color={{ r: 205, g: 95, b: 161 }}
-                            title="Styled-components, SCSS"
-                            imageUrl="https://avatars.githubusercontent.com/u/20658825?s=200&v=4">
-                            Oh ya, I've got skills. Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                            magna aliqua.
-                        </SkillCard>
+                        I've worked with a variety of web technologies. Here are some of the ones
+                        that I have been using recently:
                     </div>
+                    <Columns>
+                        <div>
+                            <SkillCard
+                                color={{ r: 240, g: 219, b: 79 }}
+                                title="JavaScript, TypeScript"
+                                imageUrl="assets/js.png"
+                            />
+                            <SkillCard
+                                color={{ r: 221, g: 27, b: 22 }}
+                                title="Angular"
+                                imageUrl="assets/angular.png"
+                            />
+                            <SkillCard
+                                color={{ r: 205, g: 95, b: 161 }}
+                                title="Styled-components, SCSS"
+                                imageUrl="assets/styled-components.png"
+                            />
+                        </div>
+                        <div>
+                            <SkillCard
+                                color={{ r: 97, g: 219, b: 251 }}
+                                title="React"
+                                imageUrl="assets/react.png"
+                            />
+                            <SkillCard
+                                color={{ r: 0, g: 0, b: 0 }}
+                                title="Stencil.js (Web Components)"
+                                imageUrl="assets/stenciljs.png"
+                            />
+                        </div>
+                    </Columns>
                 </Section>
                 <Section title="About this site">
                     <div>
@@ -129,6 +122,15 @@ const Content = styled.div`
     display: flex;
     flex-direction: column;
     margin-top: 32px;
+`;
+
+const Columns = styled.div`
+    display: flex;
+    flex-direction: row;
+
+    div:first-child {
+        margin-right: 8px;
+    }
 `;
 
 const useAos = () => {

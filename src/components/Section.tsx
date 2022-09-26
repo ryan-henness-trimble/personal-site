@@ -4,19 +4,35 @@ import styled from 'styled-components';
 interface Props {
     children: ComponentChildren;
     id?: string;
+    light?: boolean;
     title: string;
 }
 
 const Section = (props: Props) => (
-    <Container id={props.id} data-aos="fade-up" data-aos-duration="400">
-        <Title>{props.title}</Title>
-        <Text>{props.children}</Text>
-        <SectionDivider />
-    </Container>
+    <SectionContainer id={props.id} light={props.light}>
+        <InnerContainer data-aos="fade-up" data-aos-duration="400">
+            <Title>{props.title}</Title>
+            <Text>{props.children}</Text>
+        </InnerContainer>
+    </SectionContainer>
 );
 export default Section;
 
-const Container = styled.div`
+const SectionContainer = styled.div<{ light: boolean }>`
+    background-color: ${(props) => (props.light ? 'white' : '#648feb')};
+    color: ${(props) => (props.light ? 'black' : 'white')};
+    display: flex;
+    justify-content: center;
+    padding: 3rem 0;
+    width: 100%;
+
+    &:first-child {
+        padding: 0;
+        padding-bottom: 3rem;
+    }
+`;
+
+const InnerContainer = styled.div`
     max-width: 30rem;
     padding: 0 var(--rem-12px);
 `;
@@ -43,11 +59,4 @@ const Text = styled.div`
     div {
         margin: var(--rem-8px) 0;
     }
-`;
-
-const SectionDivider = styled.div`
-    background-color: #eaeaea;
-    height: var(--rem-1px);
-    margin: var(--rem-32px) auto;
-    width: 11.125rem;
 `;
