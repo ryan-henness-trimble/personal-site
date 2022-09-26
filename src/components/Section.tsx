@@ -29,17 +29,19 @@ const Title = styled.div`
 `;
 
 const Text = styled.div`
+    display: flex;
+    flex-direction: column;
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
 
     h2 {
         font-size: 1.375rem;
         font-weight: 700;
-        margin-bottom: 0.5rem;
+        margin: 0 0 0.3rem 0;
     }
 
     div {
-        margin: var(--rem-12px) 0;
+        margin: var(--rem-8px) 0;
     }
 `;
 

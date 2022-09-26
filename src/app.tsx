@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Section from './components/Section';
 import './styles/styles.css';
 import { useEffect } from 'react';
+import SkillCard from './components/SkillCard';
 
 const App = () => {
     useAos();
@@ -56,16 +57,46 @@ const App = () => {
                 </Section>
                 <Section id="skills" title="Skills 🔨">
                     <div>
-                        JavaScript/TypeScript, React/Angular, Stencil.js (web components), Styled
-                        Components, CSS, HTML.
-                    </div>
-                    <div>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        <SkillCard
+                            color={{ r: 240, g: 219, b: 79 }}
+                            title="JavaScript, TypeScript"
+                            imageUrl="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/480px-Unofficial_JavaScript_logo_2.svg.png">
+                            Oh ya, I've got skills. Lorem ipsum dolor sit amet, consectetur
+                            adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                            magna aliqua.
+                        </SkillCard>
+                        <SkillCard
+                            color={{ r: 97, g: 219, b: 251 }}
+                            title="React"
+                            imageUrl="https://assets.stickpng.com/images/584830f5cef1014c0b5e4aa1.png">
+                            Oh ya, I've got skills. Lorem ipsum dolor sit amet, consectetur
+                            adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                            magna aliqua.
+                        </SkillCard>
+                        <SkillCard
+                            color={{ r: 221, g: 27, b: 22 }}
+                            title="Angular"
+                            imageUrl="https://cdn-images-1.medium.com/max/1200/1*nbJ41jD1-r2Oe6FsLjKaOg.png">
+                            Oh ya, I've got skills. Lorem ipsum dolor sit amet, consectetur
+                            adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                            magna aliqua.
+                        </SkillCard>
+                        <SkillCard
+                            color={{ r: 0, g: 0, b: 0 }}
+                            title="Stencil.js (Web Components)"
+                            imageUrl="https://marmelab.com/static/thumbnail-43b6f6df0f3a39ed1e5bffbd77c36f5b.png">
+                            Oh ya, I've got skills. Lorem ipsum dolor sit amet, consectetur
+                            adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                            magna aliqua.
+                        </SkillCard>
+                        <SkillCard
+                            color={{ r: 205, g: 95, b: 161 }}
+                            title="Styled-components, SCSS"
+                            imageUrl="https://avatars.githubusercontent.com/u/20658825?s=200&v=4">
+                            Oh ya, I've got skills. Lorem ipsum dolor sit amet, consectetur
+                            adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                            magna aliqua.
+                        </SkillCard>
                     </div>
                 </Section>
                 <Section title="About this site">

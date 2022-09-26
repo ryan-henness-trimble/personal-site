@@ -1,0 +1,80 @@
+import { ComponentChildren, h } from 'preact';
+import styled from 'styled-components';
+
+interface Props {
+    children: ComponentChildren;
+    color: {
+        r: number;
+        g: number;
+        b: number;
+    };
+    imageUrl: string;
+    title: string;
+}
+
+const SkillCard = (props: Props) => {
+    return (
+        <Card
+            r={props.color.r}
+            g={props.color.g}
+            b={props.color.b}
+            data-aos="fade-left"
+            data-aos-duration="400">
+            <img src={props.imageUrl} alt={props.title} />
+            <Details>
+                <span>{props.title}</span>
+                <div>{props.children}</div>
+            </Details>
+        </Card>
+    );
+};
+
+export default SkillCard;
+
+const Card = styled.div<{ r: number; g: number; b: number }>`
+    align-items: center;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+        0deg,
+        white 0%,
+        rgba(${(props) => props.r}, ${(props) => props.g}, ${(props) => props.b}, 0.15) 100%
+    );
+    border: 1px solid #eaeaea;
+    border-radius: 12px;
+    box-shadow: 0 5px 28px 1px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: var(--rem-12px);
+
+    img {
+        border-radius: 50%;
+        height: 100px;
+        margin-right: var(--rem-12px);
+        width: 100px;
+    }
+
+    @media (max-width: 450px) {
+        padding: var(--rem-6px);
+
+        img {
+            height: 65px;
+            margin-right: var(--rem-6px);
+            width: 65px;
+        }
+    }
+`;
+
+const Details = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    span {
+        font-size: 1.2rem;
+    }
+
+    div {
+        font-size: 1rem;
+    }
+`;
