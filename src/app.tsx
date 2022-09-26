@@ -1,28 +1,16 @@
 import { h } from 'preact';
-import { useState } from 'preact/hooks';
 import styled from 'styled-components';
 import Header from './components/Header';
 import Section from './components/Section';
 import './styles/styles.css';
 import { useEffect } from 'react';
 
-const tabs = [
-    { id: 'about', display: 'About' },
-    { id: 'exp', display: 'Experience' },
-    { id: 'skills', display: 'Skills' },
-];
-
 const App = () => {
-    const [currentTabId, setCurrentTabId] = useState('about');
     useAos();
-
-    const handleSetTab = (tabId: string) => {
-        setCurrentTabId(tabId);
-    };
 
     return (
         <AppStyles>
-            <Header currentTabId={currentTabId} onSetCurrentTab={handleSetTab} tabs={tabs} />
+            <Header />
             <Content>
                 <Section id="about" title="About 📝">
                     <div>

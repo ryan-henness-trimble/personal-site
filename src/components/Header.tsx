@@ -1,64 +1,15 @@
 import { h, Fragment } from 'preact';
-import { useEffect, useState, useCallback } from 'preact/hooks';
 import styled from 'styled-components';
-import debounce from 'lodash.debounce';
+import useResponsiveTabs from '../hooks/useResponsiveTabs';
 
-interface Props {
-    currentTabId: string;
-    onSetCurrentTab: (tabId: string) => void;
-    tabs: { id: string; display: string }[];
-}
+const tabs = [
+    { id: 'about', display: 'About' },
+    { id: 'exp', display: 'Experience' },
+    { id: 'skills', display: 'Skills' },
+];
 
-const Header = (props: Props): JSX.Element => {
-    const [lastWindowScrollY, setLastWindowScrollY] = useState(window.scrollY);
-    const [scrolled, setScrolled] = useState(false);
-    const [shouldUpdateTabOnScroll, setShouldUpdateTabOnScroll] = useState(true);
-
-    const handleTabClick = (tabId: string) => {
-        props.onSetCurrentTab(tabId);
-        setShouldUpdateTabOnScroll(false);
-        window.scrollTo({
-            top: getAbsoluteTabScrollOffset(tabId) - 300,
-            behavior: 'smooth',
-        });
-    };
-
-    const updateCurrentTab = useCallback(() => {
-        const navbarOffset = getTabScrollOffset('nav') - 300;
-        props.tabs.forEach((tab) => {
-            if (getTabScrollOffset(tab.id) - navbarOffset < 550) {
-                props.onSetCurrentTab(tab.id);
-            }
-        });
-    }, [props]);
-
-    const handleTabUpdate = useCallback(() => {
-        if (shouldUpdateTabOnScroll) {
-            updateCurrentTab();
-        } else {
-            setShouldUpdateTabOnScroll(lastWindowScrollY === window.scrollY);
-        }
-    }, [shouldUpdateTabOnScroll, lastWindowScrollY, updateCurrentTab]);
-
-    const handleWindowScroll = useCallback(() => {
-        setScrolled(window.scrollY > 200);
-        setLastWindowScrollY(window.scrollY);
-        if (shouldUpdateTabOnScroll) {
-            handleTabUpdate();
-        }
-    }, [handleTabUpdate, shouldUpdateTabOnScroll]);
-
-    useEffect(() => {
-        if (shouldUpdateTabOnScroll) {
-            window.addEventListener('scroll', debounce(handleWindowScroll, 50));
-        }
-
-        return () => {
-            if (shouldUpdateTabOnScroll) {
-                window.removeEventListener('scroll', debounce(handleWindowScroll, 50));
-            }
-        };
-    }, [handleWindowScroll, shouldUpdateTabOnScroll]);
+const Header = (): JSX.Element => {
+    const { currentTabId, hasScrolled, handleTabClick } = useResponsiveTabs(tabs);
 
     return (
         <Fragment>
@@ -76,10 +27,10 @@ const Header = (props: Props): JSX.Element => {
                 <Headshot src="assets/headshot.png" />
             </HeadshotContainer>
             <Name>Ryan Henness</Name>
-            <Navbar id="nav" showShadow={scrolled}>
-                {props.tabs.map((tab) => (
+            <Navbar id="nav" showShadow={hasScrolled}>
+                {tabs.map((tab) => (
                     <NavTab
-                        isActive={tab.id === props.currentTabId}
+                        isActive={tab.id === currentTabId}
                         key={tab.id}
                         onClick={() => handleTabClick(tab.id)}>
                         {tab.display}
@@ -91,19 +42,6 @@ const Header = (props: Props): JSX.Element => {
 };
 
 export default Header;
-
-const getAbsoluteTabScrollOffset = (tabId: string) => {
-    const bodyRect = document.body.getBoundingClientRect();
-    const tabRect = document.querySelector(`#${tabId}`)?.getBoundingClientRect();
-
-    return tabRect ? tabRect?.top - bodyRect.top : 0;
-};
-
-const getTabScrollOffset = (tabId: string) => {
-    const tabRect = document.querySelector(`#${tabId}`)?.getBoundingClientRect();
-
-    return tabRect ? tabRect?.top : 0;
-};
 
 const Socials = styled.div`
     align-items: center;
