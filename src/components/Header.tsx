@@ -84,10 +84,10 @@ const Headshot = styled.img`
     border: var(--rem-4px) solid #648feb;
     border-radius: 50%;
     box-shadow: var(--rem-0px) var(--rem-4px) var(--rem-28px) var(--rem-2px) rgba(0, 0, 0, 0.25);
-    height: ${(props) => (props.hide ? 'var(--rem-30px)' : '12.5rem')};
+    height: ${(props) => (props.hide ? 'var(--rem-30px)' : '9rem')};
     margin-bottom: var(--rem-8px);
     transition: height 0.3s ease-in, width 0.3s ease-in;
-    width: ${(props) => (props.hide ? '0' : '12.5rem')};
+    width: ${(props) => (props.hide ? '0' : '9rem')};
     z-index: 5;
 `;
 
