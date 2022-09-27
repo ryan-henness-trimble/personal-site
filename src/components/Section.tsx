@@ -13,7 +13,7 @@ const Section = (props: Props) => (
     <SectionContainer id={props.id} light={props.light}>
         <InnerContainer center={props.center} data-aos="fade-up" data-aos-duration="400">
             <Title>{props.title}</Title>
-            <Text>{props.children}</Text>
+            <Text center={props.center}>{props.children}</Text>
         </InnerContainer>
     </SectionContainer>
 );
@@ -26,19 +26,14 @@ const SectionContainer = styled.div<{ light: boolean }>`
     justify-content: center;
     padding: 2.5rem 0;
     width: 100%;
-
-    &:first-child {
-        padding: 0;
-        padding-bottom: 3rem;
-    }
 `;
 
-const InnerContainer = styled.div<{ center: boolean }>`
+const InnerContainer = styled.div`
     align-items: ${(props) => (props.center ? 'center' : 'flex-start')};
     display: flex;
     flex-direction: column;
     max-width: 30rem;
-    padding: 0 var(--rem-12px);
+    padding: 0 var(--rem-24px);
 `;
 
 const Title = styled.div`
@@ -48,11 +43,13 @@ const Title = styled.div`
     margin-bottom: 1rem;
 `;
 
-const Text = styled.div`
+const Text = styled.div<{ center: boolean }>`
+    align-items: ${(props) => (props.center ? 'center' : 'normal')};
     display: flex;
     flex-direction: column;
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
+    text-align: ${(props) => (props.center ? 'center' : 'start')};
 
     h2 {
         font-size: 1.375rem;

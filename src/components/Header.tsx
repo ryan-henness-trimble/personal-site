@@ -15,13 +15,14 @@ const Header = (): JSX.Element => {
         <Fragment>
             <Socials>
                 <Icon
-                    src="assets/icons/icon_github.png"
-                    onClick={() => window.open('https://github.com/ryan-henness-trimble')}
-                />
-                <Icon
                     src="assets/icons/icon_linkedin.png"
                     onClick={() => window.open('https://www.linkedin.com/in/ryan-henness')}
                 />
+                <Icon
+                    src="assets/icons/icon_github.png"
+                    onClick={() => window.open('https://github.com/ryan-henness-trimble')}
+                />
+                <Padding />
             </Socials>
             <HeadshotContainer>
                 <Headshot src="assets/headshot.png" />
@@ -59,8 +60,8 @@ const Icon = styled.img`
     border-radius: 50%;
     cursor: pointer;
     height: var(--rem-24px);
-    margin: var(--rem-12px) var(--rem-4px);
-    padding: var(--rem-4px);
+    margin: var(--rem-6px);
+    padding: var(--rem-2px);
     width: var(--rem-24px);
 
     &:hover {
@@ -70,6 +71,10 @@ const Icon = styled.img`
     &:active {
         background-color: #eeeeee;
     }
+`;
+
+const Padding = styled.div`
+    width: var(--rem-8px);
 `;
 
 const HeadshotContainer = styled.div`
