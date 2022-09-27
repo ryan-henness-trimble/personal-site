@@ -86,7 +86,7 @@ const HeadshotContainer = styled.div`
 `;
 
 const Headshot = styled.img`
-    border: var(--rem-4px) solid var(--personal-blue);
+    border: var(--rem-4px) solid var(--col-personal-blue);
     border-radius: 50%;
     box-shadow: 0 5px 28px 1px rgba(0, 0, 0, 0.2);
     height: ${(props) => (props.hide ? 'var(--rem-30px)' : '9rem')};
@@ -131,12 +131,12 @@ const NavTab = styled.div<{ isActive?: boolean }>`
     user-select: none;
 
     &:active {
-        border-bottom: var(--rem-2px) solid #648feb;
+        border-bottom: var(--rem-2px) solid var(--col-personal-blue);
     }
 
     @media (min-width: 450px) {
         &:hover:not(${(props) => !props.isActive}) {
-            border-bottom: var(--rem-1px) solid #648feb;
+            border-bottom: var(--rem-1px) solid var(--col-personal-blue);
         }
     }
 `;

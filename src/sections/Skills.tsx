@@ -76,6 +76,6 @@ const Columns = styled.div`
     flex-direction: row;
 
     div:first-child {
-        margin-right: 8px;
+        margin-right: var(--rem-8px);
     }
 `;

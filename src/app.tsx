@@ -1,9 +1,7 @@
 import { h } from 'preact';
 import styled from 'styled-components';
 import Header from './components/Header';
-import Section from './components/Section';
 import './styles/styles.css';
-import SkillCard from './components/SkillCard';
 import useAos from './hooks/useAos';
 import About from './sections/About';
 import Experience from './sections/Experience';
@@ -41,7 +39,7 @@ const Content = styled.div`
 `;
 
 export const Link = styled.span`
-    color: #ebc265;
+    color: var(--col-personal-gold);
     cursor: pointer;
 
     &:hover {
