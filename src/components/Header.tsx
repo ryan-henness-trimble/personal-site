@@ -60,7 +60,7 @@ const Icon = styled.img`
     border-radius: 50%;
     cursor: pointer;
     height: var(--rem-24px);
-    margin: var(--rem-6px);
+    margin: var(--rem-2px);
     padding: var(--rem-2px);
     width: var(--rem-24px);
 
