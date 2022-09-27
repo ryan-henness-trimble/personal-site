@@ -24,7 +24,7 @@ const SectionContainer = styled.div<{ light: boolean }>`
     color: ${(props) => (props.light ? 'black' : 'white')};
     display: flex;
     justify-content: center;
-    overflow-x: hidden;
+    overflow: hidden;
     padding: 2.5rem 0;
     width: 100%;
 `;
