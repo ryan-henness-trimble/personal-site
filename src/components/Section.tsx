@@ -2,6 +2,7 @@ import { h, ComponentChildren } from 'preact';
 import styled from 'styled-components';
 
 interface Props {
+    center?: boolean;
     children: ComponentChildren;
     id?: string;
     light?: boolean;
@@ -10,7 +11,7 @@ interface Props {
 
 const Section = (props: Props) => (
     <SectionContainer id={props.id} light={props.light}>
-        <InnerContainer data-aos="fade-up" data-aos-duration="400">
+        <InnerContainer center={props.center} data-aos="fade-up" data-aos-duration="400">
             <Title>{props.title}</Title>
             <Text>{props.children}</Text>
         </InnerContainer>
@@ -23,7 +24,7 @@ const SectionContainer = styled.div<{ light: boolean }>`
     color: ${(props) => (props.light ? 'black' : 'white')};
     display: flex;
     justify-content: center;
-    padding: 3rem 0;
+    padding: 2.5rem 0;
     width: 100%;
 
     &:first-child {
@@ -32,7 +33,10 @@ const SectionContainer = styled.div<{ light: boolean }>`
     }
 `;
 
-const InnerContainer = styled.div`
+const InnerContainer = styled.div<{ center: boolean }>`
+    align-items: ${(props) => (props.center ? 'center' : 'flex-start')};
+    display: flex;
+    flex-direction: column;
     max-width: 30rem;
     padding: 0 var(--rem-12px);
 `;

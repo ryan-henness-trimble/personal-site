@@ -13,7 +13,8 @@ const App = () => {
         <AppStyles>
             <Header />
             <Content>
-                <Section id="about" title="About 📝" light>
+                <div id="about" />
+                <Section title="About 📝" light>
                     <div>
                         Hey, I’m Ryan 👋 I’m a developer based in Portland, Oregon. I graduated with
                         a Bachelor of Science in Computer Science from the University of Portland in
@@ -33,16 +34,18 @@ const App = () => {
                         out with friends to hang out.
                     </div>
                 </Section>
-                <Section id="exp" title="Experience 😎">
+                <div id="exp" />
+                <Section title="Experience 😎">
                     <h2>Currently</h2>
                     <div>
-                        I work at Trimble Viewpoint. Lorem ipsum dolor sit amet, consectetur
-                        adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-                        officia deserunt mollit anim id est laborum.
+                        I work at Trimble Viewpoint. Want to see something cool? You can find it
+                        <Link> here</Link>. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                        ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+                        est laborum.
                     </div>
                     <h2>In the past</h2>
                     <div>
@@ -55,7 +58,8 @@ const App = () => {
                         officia deserunt mollit anim id est laborum.
                     </div>
                 </Section>
-                <Section id="skills" title="Skills 🔨" light>
+                <div id="skills" />
+                <Section title="Skills 🔨" light>
                     <div>
                         I've worked with a variety of web technologies. Here are some of the ones
                         that I have been using recently:
@@ -73,9 +77,19 @@ const App = () => {
                                 imageUrl="assets/angular.png"
                             />
                             <SkillCard
+                                color={{ r: 64, g: 120, b: 192 }}
+                                title="GitHub"
+                                imageUrl="assets/github.png"
+                            />
+                            <SkillCard
                                 color={{ r: 205, g: 95, b: 161 }}
                                 title="Styled-components, SCSS"
                                 imageUrl="assets/styled-components.png"
+                            />
+                            <SkillCard
+                                color={{ r: 252, g: 68, b: 132 }}
+                                title="Storybook"
+                                imageUrl="assets/storybook.png"
                             />
                         </div>
                         <div>
@@ -85,14 +99,43 @@ const App = () => {
                                 imageUrl="assets/react.png"
                             />
                             <SkillCard
-                                color={{ r: 0, g: 0, b: 0 }}
+                                color={{ r: 76, g: 72, b: 255 }}
                                 title="Stencil.js (Web Components)"
                                 imageUrl="assets/stenciljs.png"
+                            />
+                            <SkillCard
+                                color={{ r: 58, g: 196, b: 241 }}
+                                title="Azure"
+                                imageUrl="assets/azure.png"
+                            />
+                            <SkillCard
+                                color={{ r: 227, g: 46, b: 55 }}
+                                title="NPM"
+                                imageUrl="assets/npm.png"
                             />
                         </div>
                     </Columns>
                 </Section>
-                <Section title="About this site">
+                <Section title="Ready to start chatting?" center>
+                    <div>
+                        Want to get in touch with me? Let's talk! Lorem ipsum dolor sit amet,
+                        consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                        ullamco laboris nisi ut aliquip ex ea commodo
+                    </div>
+                    <div>
+                        <div>
+                            📧 <Link>ryanhenness@gmail.com</Link>
+                        </div>
+                        <div>
+                            🤵 <Link>LinkedIn</Link>
+                        </div>
+                        <div>
+                            👩‍💻 <Link>GitHub</Link>
+                        </div>
+                    </div>
+                </Section>
+                <Section title="About this site" light center>
                     <div>
                         This site was built using the Preact CLI, a light-weight alternative to
                         React.
@@ -130,6 +173,15 @@ const Columns = styled.div`
 
     div:first-child {
         margin-right: 8px;
+    }
+`;
+
+const Link = styled.span`
+    color: #ebc265;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: underline;
     }
 `;
 

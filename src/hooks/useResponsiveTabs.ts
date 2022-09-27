@@ -11,7 +11,7 @@ const useResponsiveTabs = (tabs: { id: string; display: string }[]) => {
         setCurrentTabId(id);
         setShouldUpdateTabOnScroll(false);
         window.scrollTo({
-            top: getAbsoluteTabScrollOffset(id) - 200,
+            top: getAbsoluteTabScrollOffset(id) - 150,
             behavior: 'smooth',
         });
     };
@@ -43,12 +43,12 @@ const useResponsiveTabs = (tabs: { id: string; display: string }[]) => {
 
     useEffect(() => {
         if (shouldUpdateTabOnScroll) {
-            window.addEventListener('scroll', debounce(handleWindowScroll, 10));
+            window.addEventListener('scroll', debounce(handleWindowScroll, 100));
         }
 
         return () => {
             if (shouldUpdateTabOnScroll) {
-                window.removeEventListener('scroll', debounce(handleWindowScroll, 10));
+                window.removeEventListener('scroll', debounce(handleWindowScroll, 100));
             }
         };
     }, [handleWindowScroll, shouldUpdateTabOnScroll]);

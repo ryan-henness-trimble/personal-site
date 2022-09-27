@@ -59,7 +59,7 @@ const Icon = styled.img`
     border-radius: 50%;
     cursor: pointer;
     height: var(--rem-24px);
-    margin: 0 var(--rem-2px);
+    margin: var(--rem-12px) var(--rem-4px);
     padding: var(--rem-4px);
     width: var(--rem-24px);
 
@@ -81,7 +81,7 @@ const HeadshotContainer = styled.div`
 `;
 
 const Headshot = styled.img`
-    border: var(--rem-4px) solid #648feb;
+    border: var(--rem-4px) solid var(--personal-blue);
     border-radius: 50%;
     box-shadow: 0 5px 28px 1px rgba(0, 0, 0, 0.2);
     height: ${(props) => (props.hide ? 'var(--rem-30px)' : '9rem')};
