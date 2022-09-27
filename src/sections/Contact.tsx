@@ -13,13 +13,22 @@ const Contact = () => {
             </div>
             <div>
                 <div>
-                    📧 <Link>ryanhenness@gmail.com</Link>
+                    🤵{' '}
+                    <Link onClick={() => window.open('https://www.linkedin.com/in/ryan-henness')}>
+                        LinkedIn
+                    </Link>
                 </div>
                 <div>
-                    🤵 <Link>LinkedIn</Link>
+                    💻{' '}
+                    <Link onClick={() => window.open('https://github.com/ryan-henness-trimble')}>
+                        GitHub
+                    </Link>
                 </div>
                 <div>
-                    👩‍💻 <Link>GitHub</Link>
+                    📧 <span>ryanhenness@gmail.com</span>
+                </div>
+                <div>
+                    📞 <span>971.282.7844</span>
                 </div>
             </div>
         </Section>
