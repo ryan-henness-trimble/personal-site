@@ -8,7 +8,7 @@ const Experience = () => {
         <Fragment>
             <div id="exp" />
             <Section title="Experience 😎">
-                <Point>
+                <Point data-aos="flip-left" data-aos-duration="400">
                     <div>Trimble Viewpoint - Software Developer (Current)</div>
                     <div>
                         I work here right now! Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -17,7 +17,7 @@ const Experience = () => {
                         aliquip ex ea commodo
                     </div>
                 </Point>
-                <Point>
+                <Point data-aos="flip-right" data-aos-duration="400">
                     <div>Jet Global - Software Developer (Past)</div>
                     <div>
                         I work here right now! Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -26,7 +26,7 @@ const Experience = () => {
                         aliquip ex ea commodo
                     </div>
                 </Point>
-                <Point>
+                <Point data-aos="flip-left" data-aos-duration="400">
                     <div>MSEI - Software Developer Intern (Current)</div>
                     <div>
                         I work here right now! Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -35,7 +35,7 @@ const Experience = () => {
                         aliquip ex ea commodo
                     </div>
                 </Point>
-                <Point>
+                <Point data-aos="flip-right" data-aos-duration="400">
                     <div>Fiserv - Software Developer Intern (Current)</div>
                     <div>
                         I work here right now! Lorem ipsum dolor sit amet, consectetur adipiscing
