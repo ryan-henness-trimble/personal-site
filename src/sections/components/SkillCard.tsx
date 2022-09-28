@@ -42,6 +42,7 @@ const Card = styled.div<{ r: number; g: number; b: number }>`
     display: flex;
     flex-direction: row;
     height: 3rem;
+    margin: var(--rem-6px);
     padding: var(--rem-4px) var(--rem-12px);
     width: 100%;
 
@@ -66,6 +67,6 @@ const Card = styled.div<{ r: number; g: number; b: number }>`
 const Details = styled.div`
     display: flex;
     flex-direction: column;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     justify-content: center;
 `;

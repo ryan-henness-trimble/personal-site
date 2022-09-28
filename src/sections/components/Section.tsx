@@ -6,11 +6,12 @@ interface Props {
     children: ComponentChildren;
     id?: string;
     light?: boolean;
+    padding?: string;
     title: string;
 }
 
 const Section = (props: Props) => (
-    <SectionContainer id={props.id} light={props.light}>
+    <SectionContainer id={props.id} light={props.light} padding={props.padding}>
         <InnerContainer center={props.center} data-aos="fade-up" data-aos-duration="400">
             <Title>{props.title}</Title>
             <Text center={props.center}>{props.children}</Text>
@@ -19,13 +20,13 @@ const Section = (props: Props) => (
 );
 export default Section;
 
-const SectionContainer = styled.div<{ light: boolean }>`
+const SectionContainer = styled.div<{ light: boolean; padding: string }>`
     background-color: ${(props) => (props.light ? 'white' : '#648feb')};
     color: ${(props) => (props.light ? 'black' : 'white')};
     display: flex;
     justify-content: center;
-    overflow-x: hidden;
-    padding: 2.5rem 0;
+    overflow: hidden;
+    padding: ${(props) => (props.padding ? props.padding : '2.5rem 0')};
     width: 100%;
 `;
 
@@ -57,8 +58,8 @@ const Text = styled.div<{ center: boolean }>`
         font-weight: 700;
         margin: 0 0 0.3rem 0;
     }
+`;
 
-    div {
-        margin: var(--rem-8px) 0;
-    }
+export const SectionGroup = styled.div`
+    margin: var(--rem-8px) 0;
 `;

@@ -1,6 +1,6 @@
 import { h } from 'preact';
 import styled from 'styled-components';
-import Header from './components/Header';
+import Header from './sections/components/Header';
 import './styles/styles.css';
 import useAos from './hooks/useAos';
 import About from './sections/About';

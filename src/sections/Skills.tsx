@@ -1,6 +1,6 @@
 import { h } from 'preact';
-import Section from '../components/Section';
-import SkillCard from '../components/SkillCard';
+import Section, { SectionGroup } from './components/Section';
+import SkillCard from './components/SkillCard';
 import { Fragment } from 'react';
 import styled from 'styled-components';
 
@@ -9,10 +9,10 @@ const Skills = () => {
         <Fragment>
             <div id="skills" />
             <Section title="Skills 🔨" light>
-                <div>
+                <SectionGroup>
                     I've worked with a variety of web technologies. Here are some of the ones that I
                     have been using recently:
-                </div>
+                </SectionGroup>
                 <Columns>
                     <div>
                         <SkillCard
@@ -32,7 +32,7 @@ const Skills = () => {
                         />
                         <SkillCard
                             color={{ r: 205, g: 95, b: 161 }}
-                            title="Styled-components, SCSS"
+                            title="Styled Components"
                             imageUrl="assets/styled-components.png"
                         />
                         <SkillCard

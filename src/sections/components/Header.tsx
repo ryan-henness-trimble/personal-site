@@ -1,6 +1,6 @@
 import { h, Fragment } from 'preact';
 import styled from 'styled-components';
-import useResponsiveTabs from '../hooks/useResponsiveTabs';
+import useResponsiveTabs from '../../hooks/useResponsiveTabs';
 
 const tabs = [
     { id: 'about', display: 'About' },
@@ -112,13 +112,13 @@ const Name = styled.div`
 
 const Navbar = styled.div<{ showShadow?: boolean }>`
     background-color: white;
-    box-shadow: ${(props) => (props.showShadow ? '0px 5px 28px 1px rgba(0, 0, 0, 0.06)' : 'none')};
+    box-shadow: ${(props) => (props.showShadow ? '0px 3px 32px 1px rgba(0, 0, 0, 0.175)' : 'none')};
     display: flex;
     justify-content: center;
     padding-bottom: var(--rem-24px);
     position: sticky;
     top: 6.8rem;
-    transition: box-shadow 0.3s ease-in, width 0.3s ease-in;
+    transition: box-shadow 0.3s ease-in;
     z-index: 1;
 `;
 
