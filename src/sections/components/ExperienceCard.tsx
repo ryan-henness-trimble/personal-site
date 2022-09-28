@@ -11,17 +11,24 @@ interface Props {
 
 const ExperienceCard = (props: Props) => {
     return (
-        <Fragment>
+        <Card>
             <Company onClick={() => window.open(props.companyUrl)}>{props.company}</Company>
             <Title>
                 {props.title} ● {props.length}
             </Title>
             <div>{props.children}</div>
-        </Fragment>
+        </Card>
     );
 };
 
 export default ExperienceCard;
+
+const Card = styled.div`
+    background-color: var(--col-personal-blue-darker);
+    border-radius: var(--rem-16px);
+    box-shadow: 0 5px 32px 1px rgba(0, 0, 0, 0.2);
+    padding: var(--rem-16px) var(--rem-24px);
+`;
 
 const Company = styled.div`
     color: var(--col-personal-gold);
