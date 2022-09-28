@@ -16,7 +16,7 @@ const ExperienceCard = (props: Props) => {
             <Title>
                 {props.title} ● {props.length}
             </Title>
-            <div>{props.children}</div>
+            <Content>{props.children}</Content>
         </Card>
     );
 };
@@ -33,6 +33,7 @@ const Card = styled.div`
 const Company = styled.div`
     color: var(--col-personal-gold);
     cursor: pointer;
+    margin: var(--rem-8px) 0 var(--rem-2px) 0;
     font-size: var(--rem-20px);
 
     &:hover {
@@ -42,4 +43,9 @@ const Company = styled.div`
 
 const Title = styled.div`
     font-size: var(--rem-14px);
+    margin: 0 0 var(--rem-4px) 0;
+`;
+
+const Content = styled.div`
+    margin: var(--rem-16px) 0;
 `;
