@@ -118,7 +118,7 @@ const Navbar = styled.div<{ showShadow?: boolean }>`
     padding-bottom: var(--rem-24px);
     position: sticky;
     top: 6.8rem;
-    transition: box-shadow 0.3s ease-in, width 0.3s ease-in;
+    transition: box-shadow 0.3s ease-in;
     z-index: 1;
 `;
 

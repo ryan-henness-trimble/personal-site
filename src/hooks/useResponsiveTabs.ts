@@ -43,12 +43,12 @@ const useResponsiveTabs = (tabs: { id: string; display: string }[]) => {
 
     useEffect(() => {
         if (shouldUpdateTabOnScroll) {
-            window.addEventListener('scroll', debounce(handleWindowScroll, 100));
+            window.addEventListener('scroll', debounce(handleWindowScroll, 50));
         }
 
         return () => {
             if (shouldUpdateTabOnScroll) {
-                window.removeEventListener('scroll', debounce(handleWindowScroll, 100));
+                window.removeEventListener('scroll', debounce(handleWindowScroll, 50));
             }
         };
     }, [handleWindowScroll, shouldUpdateTabOnScroll]);
