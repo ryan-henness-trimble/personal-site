@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import Section from '../components/Section';
+import Section from './components/Section';
 
 const ThisSite = () => {
     return (
