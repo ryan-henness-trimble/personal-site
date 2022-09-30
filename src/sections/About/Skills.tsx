@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import Section, { SectionGroup } from '../components/Section';
+import { SectionGroup } from '../components/Section';
 import SkillCard from './SkillCard';
 import { Fragment } from 'react';
 import styled from 'styled-components';

@@ -35,8 +35,8 @@ const Card = styled.div<{ r: number; g: number; b: number }>`
         white 0%,
         rgba(${(props) => props.r}, ${(props) => props.g}, ${(props) => props.b}, 0.15) 100%
     );
-    border: 1px solid #eaeaea;
-    border-radius: 12px;
+    border: var(--rem-1px) solid var(--col-persona-gray);
+    border-radius: var(--rem-12px);
     box-shadow: 0 5px 28px 1px rgba(0, 0, 0, 0.06);
     box-sizing: border-box;
     display: flex;

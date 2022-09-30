@@ -62,6 +62,9 @@ const Experience = () => {
                                     <TechNote>
                                         <span>▸</span> Stencil.js
                                     </TechNote>
+                                    <TechNote>
+                                        <span>▸</span> Azure DevOps
+                                    </TechNote>
                                 </NoteColumn>
                                 <NoteColumn>
                                     <TechNote>
@@ -72,11 +75,6 @@ const Experience = () => {
                                     </TechNote>
                                     <TechNote>
                                         <span>▸</span> Storybook
-                                    </TechNote>
-                                </NoteColumn>
-                                <NoteColumn>
-                                    <TechNote>
-                                        <span>▸</span> Azure DevOps
                                     </TechNote>
                                     <TechNote>
                                         <span>▸</span> GitHub
@@ -115,8 +113,6 @@ const Experience = () => {
                                             <TechNote>
                                                 <span>▸</span> Azure DevOps
                                             </TechNote>
-                                        </NoteColumn>
-                                        <NoteColumn>
                                             <TechNote>
                                                 <span>▸</span> NuGet
                                             </TechNote>
@@ -180,6 +176,9 @@ const Experience = () => {
                                             <TechNote>
                                                 <span>▸</span> Yeoman
                                             </TechNote>
+                                            <TechNote>
+                                                <span>▸</span> Facebook API
+                                            </TechNote>
                                         </NoteColumn>
                                         <NoteColumn>
                                             <TechNote>
@@ -189,7 +188,7 @@ const Experience = () => {
                                                 <span>▸</span> Heroku
                                             </TechNote>
                                             <TechNote>
-                                                <span>▸</span> VersionOne & Facebook APIs
+                                                <span>▸</span> VersionOne API
                                             </TechNote>
                                         </NoteColumn>
                                     </TechNotes>

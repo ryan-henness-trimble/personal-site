@@ -1,7 +1,5 @@
 import { Fragment, h } from 'preact';
 import Section, { SectionGroup } from '../components/Section';
-import SkillCard from './SkillCard';
-import styled from 'styled-components';
 import Skills from './Skills';
 
 const About = () => {

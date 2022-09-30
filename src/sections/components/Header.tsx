@@ -22,15 +22,6 @@ const Header = (): JSX.Element => {
                     }>
                     Resume
                 </Resume>
-                <Icon
-                    src="assets/icons/icon_linkedin.png"
-                    onClick={() => window.open('https://www.linkedin.com/in/ryan-henness')}
-                />
-                <Icon
-                    src="assets/icons/icon_github.png"
-                    onClick={() => window.open('https://github.com/ryan-henness-trimble')}
-                />
-                <Padding />
             </Socials>
             <HeadshotContainer>
                 <Headshot src="assets/headshot.png" />
@@ -58,6 +49,7 @@ const Socials = styled.div`
     display: flex;
     justify-content: flex-end;
     height: 2.5rem;
+    padding: var(--rem-8px) 0;
     position: sticky;
     top: 0;
     width: 100%;
@@ -67,10 +59,11 @@ const Socials = styled.div`
 const Resume = styled.div`
     align-items: center;
     border-radius: var(--rem-8px);
+    border: var(--rem-1px) solid var(--col-personal-gray);
     cursor: pointer;
     display: flex;
     font-size: var(--rem-12px);
-    margin: var(--rem-2px);
+    margin: 0 var(--rem-16px);
     padding: 0 var(--rem-6px);
     justify-content: center;
 
@@ -81,29 +74,6 @@ const Resume = styled.div`
             }
         }
     }
-`;
-
-const Icon = styled.img`
-    border-radius: 50%;
-    cursor: pointer;
-    height: var(--rem-24px);
-    margin: var(--rem-2px);
-    padding: var(--rem-2px);
-    width: var(--rem-24px);
-
-    @media (min-width: 450px) {
-        &:hover {
-            background-color: #f6f6f6;
-        }
-    }
-
-    &:active {
-        background-color: #eeeeee;
-    }
-`;
-
-const Padding = styled.div`
-    width: var(--rem-8px);
 `;
 
 const HeadshotContainer = styled.div`
@@ -135,7 +105,7 @@ const Name = styled.div`
     padding: var(--rem-16px) 0;
     position: sticky;
     text-transform: uppercase;
-    top: 2rem;
+    top: 3rem;
     z-index: 4;
 `;
 
@@ -146,7 +116,7 @@ const Navbar = styled.div<{ showShadow?: boolean }>`
     justify-content: center;
     padding-bottom: var(--rem-12px);
     position: sticky;
-    top: 5.4rem;
+    top: 6.4rem;
     transition: box-shadow 0.3s ease-in;
     z-index: 1;
 `;

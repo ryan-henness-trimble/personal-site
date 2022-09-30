@@ -1,4 +1,4 @@
-import { h, ComponentChildren, Fragment } from 'preact';
+import { h, ComponentChildren } from 'preact';
 import styled from 'styled-components';
 
 interface Props {
