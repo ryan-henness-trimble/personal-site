@@ -59,7 +59,8 @@ const Socials = styled.div`
 const Resume = styled.div`
     align-items: center;
     border-radius: var(--rem-8px);
-    border: var(--rem-1px) solid var(--col-personal-gray);
+    border: var(--rem-1px) solid var(--col-personal-gray-darker);
+    color: var(--col-personal-gray-darker);
     cursor: pointer;
     display: flex;
     font-size: var(--rem-12px);
@@ -68,10 +69,8 @@ const Resume = styled.div`
     justify-content: center;
 
     @media (min-width: 450px) {
-        @media (min-width: 450px) {
-            &:hover {
-                background-color: #f6f6f6;
-            }
+        &:hover {
+            background-color: #f6f6f6;
         }
     }
 `;
