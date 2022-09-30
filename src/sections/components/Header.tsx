@@ -49,7 +49,7 @@ const Socials = styled.div`
     background-color: white;
     display: flex;
     justify-content: flex-end;
-    height: 2.25rem;
+    height: 2.5rem;
     position: sticky;
     top: 0;
     width: 100%;
@@ -90,7 +90,7 @@ const Headshot = styled.img`
     border-radius: 50%;
     box-shadow: 0 5px 28px 1px rgba(0, 0, 0, 0.2);
     height: ${(props) => (props.hide ? 'var(--rem-30px)' : '9rem')};
-    margin-bottom: var(--rem-8px);
+    margin-bottom: var(--rem-16px);
     transition: height 0.3s ease-in, width 0.3s ease-in;
     width: ${(props) => (props.hide ? '0' : '9rem')};
     z-index: 5;
@@ -103,21 +103,21 @@ const Name = styled.div`
     font-family: 'Roboto Flex', sans-serif;
     font-size: 3rem;
     font-weight: 700;
-    padding-bottom: var(--rem-16px);
+    padding: var(--rem-16px) 0;
     position: sticky;
     text-transform: uppercase;
-    top: 2.25rem;
+    top: 2rem;
     z-index: 4;
 `;
 
 const Navbar = styled.div<{ showShadow?: boolean }>`
     background-color: white;
-    box-shadow: ${(props) => (props.showShadow ? '0px 3px 32px 1px rgba(0, 0, 0, 0.175)' : 'none')};
+    box-shadow: ${(props) => (props.showShadow ? '0px 3px 22px 1px rgba(0, 0, 0, 0.175)' : 'none')};
     display: flex;
     justify-content: center;
-    padding-bottom: var(--rem-24px);
+    padding-bottom: var(--rem-12px);
     position: sticky;
-    top: 6.8rem;
+    top: 5.4rem;
     transition: box-shadow 0.3s ease-in;
     z-index: 1;
 `;

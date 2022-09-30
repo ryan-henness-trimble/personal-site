@@ -7,7 +7,6 @@ import About from './sections/About';
 import Experience from './sections/Experience';
 import Skills from './sections/Skills';
 import Contact from './sections/Contact';
-import ThisSite from './sections/ThisSite';
 
 const App = () => {
     useAos();
@@ -20,7 +19,6 @@ const App = () => {
                 <Experience />
                 <Skills />
                 <Contact />
-                <ThisSite />
             </Content>
         </AppStyles>
     );

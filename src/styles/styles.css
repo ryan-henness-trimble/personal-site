@@ -15,14 +15,18 @@
     --rem-32px: 2rem;
 
     --col-personal-blue: #648feb;
+    --col-personal-blue-mid: #4f7fe8;
     --col-personal-blue-darker: #4a7ce8;
     --col-personal-gold: #ebc265;
+    --col-personal-gold-lighter: #ecc76f;
+    --col-personal-gold-darker: #eabf5d;
     --col-personal-green: #B4EB4D;
 }
 
 html,
 body {
     height: 100%;
+    line-height: 1.5rem;
     margin: 0;
     max-width: 100%;
     padding: 0;
