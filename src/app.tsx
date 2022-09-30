@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import Header from './sections/components/Header';
 import './styles/styles.css';
 import useAos from './hooks/useAos';
-import About from './sections/About';
-import Experience from './sections/Experience';
-import Skills from './sections/Skills';
-import Contact from './sections/Contact';
+import About from './sections/About/About';
+import Experience from './sections/Experience/Experience';
+import Skills from './sections/Skills/Skills';
+import Contact from './sections/Contact/Contact';
 
 const App = () => {
     useAos();

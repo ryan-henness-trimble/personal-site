@@ -1,9 +1,10 @@
 import { Fragment, h } from 'preact';
-import Section from './components/Section';
+import Section from '../components/Section';
 import styled from 'styled-components';
-import ExperienceCard from './components/ExperienceCard';
+import ExperienceCard from './ExperienceCard';
 import { useState } from 'preact/hooks';
-import { getAbsoluteTabScrollOffset } from '../hooks/useResponsiveTabs';
+import { getAbsoluteTabScrollOffset } from '../../hooks/useResponsiveTabs';
+import { Link } from '../../app';
 
 const Experience = () => {
     const [showingMore, setShowingMore] = useState(false);
@@ -32,20 +33,23 @@ const Experience = () => {
                             company="Trimble Viewpoint"
                             companyUrl="https://www.viewpoint.com/company/about">
                             <div>
-                                This is my job right now! Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                exercitation ullamco laboris nisi ut aliquip ex ea commodo Lorem
-                                ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-                                ea commodo Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                                nisi ut aliquip ex ea commodo Lorem ipsum dolor sit amet,
-                                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                Working at Trimble Viewpoint has been rewarding, I have grown the
+                                most as a developer during my time here. This is where I was first
+                                introduced to SPAs, getting the chance to contribute to an Angular
+                                app. This taught me about what goes into developing an enterprise
+                                web app, and what ultimately led me to dive deeper into frontend
+                                development. I have taken what I learned from that Angular project
+                                and now primarily working on a React app that acts as a single-sign
+                                on landing page for Trimble apps. On the side, I lead the
+                                development of an open-source web component library that adheres to
+                                Trimble's Modus design system, you can find it at{' '}
+                                <Link
+                                    onClick={() =>
+                                        window.open('https://modus-web-components.trimble.com/')
+                                    }>
+                                    Modus Web Components
+                                </Link>
+                                .
                             </div>
                             <TechNotes>
                                 <NoteColumn>
@@ -145,7 +149,7 @@ const Experience = () => {
                                     companyUrl="https://www.fiserv.com/en.html">
                                     <div>
                                         This internship was a lot of fun, it was where I learned
-                                        what it meant to be a part of a team. My main project was
+                                        what it means to be a part of a team. My main project was
                                         replacing an in-house code generator with Yeoman. I also
                                         worked on a side project to help migrate the team's backlog
                                         items from TFS to VersionOne using the VersionOne API. There

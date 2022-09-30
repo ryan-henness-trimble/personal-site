@@ -34,7 +34,7 @@ const InnerContainer = styled.div`
     align-items: ${(props) => (props.center ? 'center' : 'flex-start')};
     display: flex;
     flex-direction: column;
-    max-width: 30rem;
+    max-width: 40rem;
     padding: 0 var(--rem-24px);
 `;
 

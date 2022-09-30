@@ -1,6 +1,6 @@
 import { h } from 'preact';
-import Section, { SectionGroup } from './components/Section';
-import { Link } from '../app';
+import Section, { SectionGroup } from '../components/Section';
+import { Link } from '../../app';
 import styled from 'styled-components';
 import { useEffect, useState } from 'preact/hooks';
 

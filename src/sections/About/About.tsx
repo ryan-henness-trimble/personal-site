@@ -1,5 +1,5 @@
 import { Fragment, h } from 'preact';
-import Section, { SectionGroup } from './components/Section';
+import Section, { SectionGroup } from '../components/Section';
 
 const About = () => {
     return (

@@ -14,7 +14,8 @@ const ExperienceCard = (props: Props) => {
         <Card>
             <Company onClick={() => window.open(props.companyUrl)}>{props.company}</Company>
             <Title>
-                {props.title} ● {props.length}
+                <div>{props.title}</div>
+                <div>{props.length}</div>
             </Title>
             <Content>{props.children}</Content>
         </Card>
@@ -26,7 +27,7 @@ export default ExperienceCard;
 const Card = styled.div`
     background-color: var(--col-personal-blue-darker);
     border-radius: var(--rem-16px);
-    box-shadow: 0 5px 32px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 32px 1px rgba(0, 0, 0, 0.125);
     padding: var(--rem-16px) var(--rem-24px);
 `;
 
@@ -34,6 +35,7 @@ const Company = styled.div`
     color: var(--col-personal-gold);
     cursor: pointer;
     margin: var(--rem-8px) 0 var(--rem-2px) 0;
+    font-family: 'Roboto Flex', sans-serif;
     font-size: var(--rem-20px);
 
     &:hover {
@@ -42,6 +44,8 @@ const Company = styled.div`
 `;
 
 const Title = styled.div`
+    display: flex;
+    flex-direction: column;
     font-size: var(--rem-14px);
     margin: 0 0 var(--rem-4px) 0;
 `;

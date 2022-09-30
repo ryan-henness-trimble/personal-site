@@ -1,6 +1,6 @@
 import { h } from 'preact';
-import Section, { SectionGroup } from './components/Section';
-import SkillCard from './components/SkillCard';
+import Section, { SectionGroup } from '../components/Section';
+import SkillCard from './SkillCard';
 import { Fragment } from 'react';
 import styled from 'styled-components';
 
@@ -74,6 +74,7 @@ export default Skills;
 const Columns = styled.div`
     display: flex;
     flex-direction: row;
+    justify-content: center;
 
     div:first-child {
         margin-right: var(--rem-8px);
