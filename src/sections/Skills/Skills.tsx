@@ -54,12 +54,12 @@ const Skills = () => {
                         />
                         <SkillCard
                             color={{ r: 58, g: 196, b: 241 }}
-                            title="Azure"
+                            title="Azure DevOps"
                             imageUrl="assets/azure.png"
                         />
                         <SkillCard
                             color={{ r: 227, g: 46, b: 55 }}
-                            title="NPM"
+                            title="npm"
                             imageUrl="assets/npm.png"
                         />
                     </div>
