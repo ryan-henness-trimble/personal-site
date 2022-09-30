@@ -7,10 +7,10 @@ import styled from 'styled-components';
 const Skills = () => {
     return (
         <Fragment>
-            <SectionGroup>
+            <div>
                 I've worked with a variety of web technologies, here are some I've had my hands on
                 recently:
-            </SectionGroup>
+            </div>
             <Columns>
                 <div>
                     <SkillCard
@@ -72,6 +72,7 @@ const Columns = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-top: var(--rem-12px);
 
     div:first-child {
         margin-right: var(--rem-8px);

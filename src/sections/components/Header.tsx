@@ -17,7 +17,7 @@ const Header = (): JSX.Element => {
                 <Resume
                     onClick={() =>
                         window.open(
-                            'https://github.com/ryan-henness-trimble/personal-site/assets/resume.pdf'
+                            'https://github.com/ryan-henness-trimble/personal-site/resume.pdf'
                         )
                     }>
                     Resume
