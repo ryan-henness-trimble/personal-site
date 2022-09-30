@@ -1,4 +1,4 @@
-import { h } from 'preact';
+import { h, Fragment } from 'preact';
 import Section, { SectionGroup } from '../components/Section';
 import { Link } from '../../app';
 import styled from 'styled-components';
@@ -19,40 +19,43 @@ const Contact = () => {
     }, []);
 
     return (
-        <Section title="Ready to start chatting?" center>
-            <SectionGroup>Feel free to reach out!</SectionGroup>
-            <SectionGroup>
-                <Info
-                    canClick
-                    onClick={() => window.open('https://www.linkedin.com/in/ryan-henness')}>
-                    🤵 <Link>LinkedIn</Link>
-                </Info>
-                <Info
-                    canClick
-                    onClick={() => window.open('https://github.com/ryan-henness-trimble')}>
-                    💻 <Link>GitHub</Link>
-                </Info>
-                <Info>
-                    📧 <span>ryanhenness@gmail.com</span>
-                </Info>
-                <Info>
-                    📞 <span>971.282.7844</span>
-                </Info>
-                <MiniSection
-                    onClick={() =>
-                        window.open('https://github.com/ryan-henness-trimble/personal-site')
-                    }
-                    title="About this site"
-                    light
-                    center>
-                    <div>Designed & developed by Ryan Henness</div>
-                    <div>Built with the Preact CLI</div>
-                    <span>
-                        ⭐{stars} 🍴{forks}
-                    </span>
-                </MiniSection>
-            </SectionGroup>
-        </Section>
+        <Fragment>
+            <div id="contact" />
+            <Section title="Ready to start chatting?" light center>
+                <SectionGroup>Feel free to reach out!</SectionGroup>
+                <SectionGroup>
+                    <Info
+                        canClick
+                        onClick={() => window.open('https://www.linkedin.com/in/ryan-henness')}>
+                        🤵 <Link>LinkedIn</Link>
+                    </Info>
+                    <Info
+                        canClick
+                        onClick={() => window.open('https://github.com/ryan-henness-trimble')}>
+                        💻 <Link>GitHub</Link>
+                    </Info>
+                    <Info>
+                        📧 <span>ryanhenness@gmail.com</span>
+                    </Info>
+                    <Info>
+                        📞 <span>971.282.7844</span>
+                    </Info>
+                    <MiniSection
+                        onClick={() =>
+                            window.open('https://github.com/ryan-henness-trimble/personal-site')
+                        }
+                        title="About this site"
+                        light
+                        center>
+                        <div>Designed & developed by Ryan Henness</div>
+                        <div>Built with the Preact CLI</div>
+                        <span>
+                            ⭐{stars} 🍴{forks}
+                        </span>
+                    </MiniSection>
+                </SectionGroup>
+            </Section>
+        </Fragment>
     );
 };
 
@@ -62,6 +65,7 @@ const Info = styled.div<{ canClick: boolean }>`
     background-color: var(--col-personal-blue-darker);
     border-radius: var(--rem-4px);
     box-shadow: 0 5px 28px 1px rgba(0, 0, 0, 0.12);
+    color: white;
     cursor: ${(props) => (props.canClick ? 'pointer' : 'default')};
     margin: var(--rem-12px);
     padding: var(--rem-8px) var(--rem-6px);
@@ -78,8 +82,8 @@ const Info = styled.div<{ canClick: boolean }>`
 `;
 
 const MiniSection = styled.div`
-    background-color: var(--col-personal-blue);
-    color: white;
+    background-color: white;
+    color: black;
     cursor: pointer;
     text-align: center;
     font-size: var(--rem-12px);

@@ -5,7 +5,6 @@ import './styles/styles.css';
 import useAos from './hooks/useAos';
 import About from './sections/About/About';
 import Experience from './sections/Experience/Experience';
-import Skills from './sections/Skills/Skills';
 import Contact from './sections/Contact/Contact';
 
 const App = () => {
@@ -17,7 +16,6 @@ const App = () => {
             <Content>
                 <About />
                 <Experience />
-                <Skills />
                 <Contact />
             </Content>
         </AppStyles>

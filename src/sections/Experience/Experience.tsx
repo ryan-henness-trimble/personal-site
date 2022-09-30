@@ -24,7 +24,7 @@ const Experience = () => {
             <Section title="Experience 😎">
                 <SectionCollapser collapse={!showingMore}>
                     <Point
-                        data-aos="flip-left"
+                        data-aos="flip-up"
                         data-aos-duration="400"
                         padding="1rem 2.5rem 2.5rem 2.5rem">
                         <ExperienceCard
@@ -36,13 +36,13 @@ const Experience = () => {
                                 Working at Trimble Viewpoint has been rewarding, I have grown the
                                 most as a developer during my time here. This is where I was first
                                 introduced to SPAs, getting the chance to contribute to an Angular
-                                app. This taught me about what goes into developing an enterprise
-                                web app, and what ultimately led me to dive deeper into frontend
-                                development. I have taken what I learned from that Angular project
-                                and now primarily working on a React app that acts as a single-sign
-                                on landing page for Trimble apps. On the side, I lead the
-                                development of an open-source web component library that adheres to
-                                Trimble's Modus design system, you can find it at{' '}
+                                app. This taught me about what goes into developing a
+                                production-ready web app, and what ultimately led me to dive deeper
+                                into frontend development. I have taken what I learned from that
+                                Angular project and now primarily work on a React app that acts as a
+                                single-sign on landing page for Trimble apps. On the side, I lead
+                                the development of an open-source web component library that adheres
+                                to Trimble's Modus design system, you can find it at{' '}
                                 <Link
                                     onClick={() =>
                                         window.open('https://modus-web-components.trimble.com/')
@@ -74,23 +74,35 @@ const Experience = () => {
                                         <span>▸</span> Storybook
                                     </TechNote>
                                 </NoteColumn>
+                                <NoteColumn>
+                                    <TechNote>
+                                        <span>▸</span> Azure DevOps
+                                    </TechNote>
+                                    <TechNote>
+                                        <span>▸</span> GitHub
+                                    </TechNote>
+                                </NoteColumn>
                             </TechNotes>
                         </ExperienceCard>
                     </Point>
                     {showingMore && (
                         <Fragment>
-                            <Point data-aos="flip-right" data-aos-duration="400">
+                            <Point data-aos="flip-up" data-aos-duration="400">
                                 <ExperienceCard
                                     title="Software Developer"
                                     length="Jul 2018 - Aug 2019"
                                     company="Jet Global"
                                     companyUrl="https://insightsoftware.com/jet/">
                                     <div>
-                                        This was my first real job! Lorem ipsum dolor sit amet,
-                                        consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                        minim veniam, quis nostrud exercitation ullamco laboris nisi
-                                        ut aliquip ex ea commodo
+                                        I was hired at Jet Global as a new grad when they were known
+                                        as Jet Reports. I mainly worked on resolving bugs within our
+                                        team's .NET C# desktop app, which was a plugin for Microsoft
+                                        Excel. Toward the end of my time in this position, I started
+                                        working on features for the app. Some of the notable
+                                        contributions I made were developing an export to Microsoft
+                                        Word feature, implementing feature toggling, adding new
+                                        analytic events, and updating the app's branding when the
+                                        company rebranded to Jet Global.
                                     </div>
                                     <TechNotes>
                                         <NoteColumn>
@@ -101,7 +113,7 @@ const Experience = () => {
                                                 <span>▸</span> WPF
                                             </TechNote>
                                             <TechNote>
-                                                <span>▸</span> Azure
+                                                <span>▸</span> Azure DevOps
                                             </TechNote>
                                         </NoteColumn>
                                         <NoteColumn>
@@ -112,7 +124,7 @@ const Experience = () => {
                                     </TechNotes>
                                 </ExperienceCard>
                             </Point>
-                            <Point data-aos="flip-left" data-aos-duration="400">
+                            <Point data-aos="flip-up" data-aos-duration="400">
                                 <ExperienceCard
                                     title="Software Developer Intern"
                                     length="May 2017 - Nov 2017"
@@ -129,19 +141,19 @@ const Experience = () => {
                                     <TechNotes>
                                         <NoteColumn>
                                             <TechNote>
+                                                <span>▸</span> C++
+                                            </TechNote>
+                                            <TechNote>
                                                 <span>▸</span> C#
                                             </TechNote>
                                             <TechNote>
                                                 <span>▸</span> Xamarin
                                             </TechNote>
-                                            <TechNote>
-                                                <span>▸</span> HackerRank
-                                            </TechNote>
                                         </NoteColumn>
                                     </TechNotes>
                                 </ExperienceCard>
                             </Point>
-                            <Point data-aos="flip-right" data-aos-duration="400">
+                            <Point data-aos="flip-up" data-aos-duration="400">
                                 <ExperienceCard
                                     title="Software Developer Intern"
                                     length="Jun 2016 - Dec 2016"
@@ -168,19 +180,16 @@ const Experience = () => {
                                             <TechNote>
                                                 <span>▸</span> Yeoman
                                             </TechNote>
-                                            <TechNote>
-                                                <span>▸</span> AWS S3
-                                            </TechNote>
                                         </NoteColumn>
                                         <NoteColumn>
                                             <TechNote>
-                                                <span>▸</span> VersionOne API
-                                            </TechNote>
-                                            <TechNote>
-                                                <span>▸</span> Facebook API
+                                                <span>▸</span> AWS S3
                                             </TechNote>
                                             <TechNote>
                                                 <span>▸</span> Heroku
+                                            </TechNote>
+                                            <TechNote>
+                                                <span>▸</span> VersionOne & Facebook APIs
                                             </TechNote>
                                         </NoteColumn>
                                     </TechNotes>

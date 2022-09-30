@@ -5,7 +5,7 @@ import useResponsiveTabs from '../../hooks/useResponsiveTabs';
 const tabs = [
     { id: 'about', display: 'About' },
     { id: 'exp', display: 'Experience' },
-    { id: 'skills', display: 'Skills' },
+    { id: 'contact', display: 'Contact' },
 ];
 
 const Header = (): JSX.Element => {
@@ -14,6 +14,14 @@ const Header = (): JSX.Element => {
     return (
         <Fragment>
             <Socials>
+                <Resume
+                    onClick={() =>
+                        window.open(
+                            'https://github.com/ryan-henness-trimble/personal-site/assets/resume.pdf'
+                        )
+                    }>
+                    Resume
+                </Resume>
                 <Icon
                     src="assets/icons/icon_linkedin.png"
                     onClick={() => window.open('https://www.linkedin.com/in/ryan-henness')}
@@ -56,6 +64,25 @@ const Socials = styled.div`
     z-index: 1;
 `;
 
+const Resume = styled.div`
+    align-items: center;
+    border-radius: var(--rem-8px);
+    cursor: pointer;
+    display: flex;
+    font-size: var(--rem-12px);
+    margin: var(--rem-2px);
+    padding: 0 var(--rem-6px);
+    justify-content: center;
+
+    @media (min-width: 450px) {
+        @media (min-width: 450px) {
+            &:hover {
+                background-color: #f6f6f6;
+            }
+        }
+    }
+`;
+
 const Icon = styled.img`
     border-radius: 50%;
     cursor: pointer;
@@ -64,8 +91,10 @@ const Icon = styled.img`
     padding: var(--rem-2px);
     width: var(--rem-24px);
 
-    &:hover {
-        background-color: #f6f6f6;
+    @media (min-width: 450px) {
+        &:hover {
+            background-color: #f6f6f6;
+        }
     }
 
     &:active {
