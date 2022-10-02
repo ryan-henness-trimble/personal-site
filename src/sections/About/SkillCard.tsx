@@ -18,7 +18,8 @@ const SkillCard = (props: Props) => {
             g={props.color.g}
             b={props.color.b}
             data-aos="fade-left"
-            data-aos-duration="400">
+            data-aos-duration="400"
+            data-aos-offset="-50">
             <img src={props.imageUrl} alt={props.title} />
             <Details>{props.title}</Details>
         </Card>

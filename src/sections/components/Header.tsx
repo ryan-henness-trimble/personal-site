@@ -64,9 +64,10 @@ const Resume = styled.div`
     cursor: pointer;
     display: flex;
     font-size: var(--rem-12px);
+    justify-content: center;
     margin: 0 var(--rem-16px);
     padding: 0 var(--rem-6px);
-    justify-content: center;
+    transition: background-color 0.4s;
 
     @media (min-width: 450px) {
         &:hover {

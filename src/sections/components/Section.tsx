@@ -47,6 +47,7 @@ const Title = styled.div`
 
 const Text = styled.div<{ center: boolean }>`
     align-items: ${(props) => (props.center ? 'center' : 'normal')};
+    color: #2b2b2b;
     display: flex;
     flex-direction: column;
     font-family: 'Roboto', sans-serif;
