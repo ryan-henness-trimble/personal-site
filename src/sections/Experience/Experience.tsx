@@ -292,7 +292,7 @@ const ShowMoreButton = styled.button<{ showingMore: boolean }>`
     text-decoration: none;
     z-index: 3;
 
-    @media (min-width: 450px) {
+    @media (hover: hover) {
         &:hover {
             background-color: var(--col-personal-gold-lighter);
         }

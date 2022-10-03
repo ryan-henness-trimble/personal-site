@@ -82,7 +82,7 @@ const ThemeControl = styled.div`
     transition: transform 0.4s;
     user-select: none;
 
-    @media (min-width: 450px) {
+    @media (hover: hover) {
         &:hover {
             transform: rotate(-0.1turn);
         }
@@ -103,7 +103,7 @@ const Resume = styled.div`
     padding: 0 var(--rem-6px);
     transition: background-color 0.4s;
 
-    @media (min-width: 450px) {
+    @media (hover: hover) {
         &:hover {
             background-color: ${(props) => (props.theme.type === 'dark' ? '#404040' : '#f6f6f6')};
         }
@@ -172,7 +172,7 @@ const NavTab = styled.div<{ isActive?: boolean }>`
         border-bottom: var(--rem-2px) solid var(--col-personal-blue);
     }
 
-    @media (min-width: 450px) {
+    @media (hover: hover) {
         &:hover:not(${(props) => !props.isActive}) {
             border-bottom: var(--rem-1px) solid ${(props) => props.theme.colorPrimary};
         }

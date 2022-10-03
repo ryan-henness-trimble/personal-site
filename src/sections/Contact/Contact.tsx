@@ -50,16 +50,16 @@ const Contact = () => {
 
 export default Contact;
 
-const ContactInfo = styled.div<{ canClick: boolean }>`
+const ContactInfo = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    cursor: ${(props) => (props.canClick ? 'pointer' : 'default')};
     margin: var(--rem-6px) 0;
     padding: var(--rem-8px) var(--rem-6px);
 `;
 
 const Icons = styled.div`
+    cursor: pointer;
     display: flex;
     justify-content: center;
     margin-bottom: var(--rem-8px);
@@ -77,7 +77,7 @@ const Icon = styled.div`
         fill: ${(props) => (props.theme.type === 'dark' ? 'white' : '#2b2b2b')};
     }
 
-    @media (min-width: 450px) {
+    @media (hover: hover) {
         &:hover {
             background-color: ${(props) =>
                 props.theme.type === 'dark' ? '#404040' : 'var(--col-personal-gray)'};
