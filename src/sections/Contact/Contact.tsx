@@ -73,9 +73,14 @@ const Icon = styled.div`
     padding: var(--rem-12px);
     transition: background-color 0.4s;
 
+    path {
+        fill: ${(props) => (props.theme.type === 'dark' ? 'white' : '#2b2b2b')};
+    }
+
     @media (min-width: 450px) {
         &:hover {
-            background-color: var(--col-personal-gray);
+            background-color: ${(props) =>
+                props.theme.type === 'dark' ? '#404040' : 'var(--col-personal-gray)'};
         }
     }
 `;

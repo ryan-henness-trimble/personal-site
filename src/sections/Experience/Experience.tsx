@@ -226,7 +226,7 @@ const Point = styled.p<{ padding?: string }>`
         padding: var(--rem-10px);
         height: 0.3rem;
         width: 0.3rem;
-        background-color: #b4eb4d;
+        background-color: ${(props) => props.theme.colorAccent};
         text-align: center;
     }
 
@@ -267,7 +267,7 @@ const TechNotes = styled.div`
     margin-top: var(--rem-16px);
 
     span {
-        color: var(--col-personal-green);
+        color: ${(props) => props.theme.colorAccent};
     }
 `;
 

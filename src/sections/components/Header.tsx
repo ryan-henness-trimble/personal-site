@@ -119,9 +119,11 @@ const HeadshotContainer = styled.div`
 `;
 
 const Headshot = styled.img`
-    border: var(--rem-4px) solid var(--col-personal-blue);
+    border: var(--rem-4px) solid ${(props) => props.theme.colorPrimary};
     border-radius: 50%;
-    box-shadow: 0 5px 28px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 28px 1px
+        ${(props) =>
+            props.theme.type === 'light' ? 'rgba(100, 143, 235, 0.2)' : 'rgba(236, 199, 111, 0.2)'};
     height: ${(props) => (props.hide ? 'var(--rem-30px)' : '9rem')};
     margin-bottom: var(--rem-16px);
     transition: height 0.3s ease-in, width 0.3s ease-in;
@@ -157,7 +159,8 @@ const Navbar = styled.div<{ showShadow?: boolean }>`
 `;
 
 const NavTab = styled.div<{ isActive?: boolean }>`
-    border-bottom: var(--rem-2px) solid ${(props) => (props.isActive ? '#648feb' : 'transparent')};
+    border-bottom: var(--rem-2px) solid
+        ${(props) => (props.isActive ? props.theme.colorPrimary : 'transparent')};
     color: ${(props) => (props.theme.type === 'dark' ? 'white' : '#2b2b2b')};
     cursor: pointer;
     font-size: var(--rem-18px);
@@ -171,7 +174,7 @@ const NavTab = styled.div<{ isActive?: boolean }>`
 
     @media (min-width: 450px) {
         &:hover:not(${(props) => !props.isActive}) {
-            border-bottom: var(--rem-1px) solid var(--col-personal-blue);
+            border-bottom: var(--rem-1px) solid ${(props) => props.theme.colorPrimary};
         }
     }
 `;
