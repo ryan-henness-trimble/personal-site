@@ -1,6 +1,7 @@
 import { h, Fragment } from 'preact';
 import styled from 'styled-components';
 import useResponsiveTabs from '../../hooks/useResponsiveTabs';
+import { Scheme } from '../../hooks/useScheme';
 
 const tabs = [
     { id: 'about', display: 'About' },
@@ -8,12 +9,29 @@ const tabs = [
     { id: 'contact', display: 'Contact' },
 ];
 
-const Header = (): JSX.Element => {
+interface Props {
+    currentScheme: Scheme;
+    onToggleScheme: (scheme: Scheme) => void;
+}
+
+const Header = (props: Props): JSX.Element => {
     const { currentTabId, hasScrolled, handleTabClick } = useResponsiveTabs(tabs);
 
     return (
         <Fragment>
-            <Socials>
+            <TopRow>
+                <ThemeToggle>
+                    <ThemeControl
+                        isOn={props.currentScheme === 'light'}
+                        onClick={() => props.onToggleScheme('light')}>
+                        ☀️
+                    </ThemeControl>
+                    <ThemeControl
+                        isOn={props.currentScheme === 'dark'}
+                        onClick={() => props.onToggleScheme('dark')}>
+                        🌙
+                    </ThemeControl>
+                </ThemeToggle>
                 <Resume
                     onClick={() =>
                         window.open(
@@ -22,7 +40,7 @@ const Header = (): JSX.Element => {
                     }>
                     Resume
                 </Resume>
-            </Socials>
+            </TopRow>
             <HeadshotContainer>
                 <Headshot src="assets/headshot.png" />
             </HeadshotContainer>
@@ -43,11 +61,11 @@ const Header = (): JSX.Element => {
 
 export default Header;
 
-const Socials = styled.div`
+const TopRow = styled.div`
     align-items: center;
-    background-color: white;
+    background-color: ${(props) => props.theme.backgroundColor};
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     height: 2.5rem;
     padding: var(--rem-8px) 0;
     position: sticky;
@@ -56,11 +74,30 @@ const Socials = styled.div`
     z-index: 1;
 `;
 
+const ThemeToggle = styled.div`
+    align-items: center;
+    justify-content: center;
+    margin-left: var(--rem-8px);
+    display: flex;
+`;
+
+const ThemeControl = styled.div<{ isOn: string }>`
+    cursor: pointer;
+    filter: ${(props) => (props.isOn ? 'grayscale(0%)' : 'grayscale(100%)')};
+    margin-right: var(--rem-4px);
+    transition: transform 0.4s;
+
+    &:hover {
+        transform: ${(props) => (props.isOn ? 'none' : 'rotate(-0.1turn)')};
+    }
+`;
+
 const Resume = styled.div`
     align-items: center;
     border-radius: var(--rem-8px);
     border: var(--rem-1px) solid var(--col-personal-gray-darker);
-    color: var(--col-personal-gray-darker);
+    color: ${(props) =>
+        props.theme.type === 'dark' ? 'white' : 'var(--col-personal-gray-darker)'};
     cursor: pointer;
     display: flex;
     font-size: var(--rem-12px);
@@ -71,13 +108,13 @@ const Resume = styled.div`
 
     @media (min-width: 450px) {
         &:hover {
-            background-color: #f6f6f6;
+            background-color: ${(props) => (props.theme.type === 'dark' ? '#404040' : '#f6f6f6')};
         }
     }
 `;
 
 const HeadshotContainer = styled.div`
-    background-color: white;
+    background-color: ${(props) => props.theme.backgroundColor};
     display: flex;
     height: 100%;
     justify-content: center;
@@ -96,7 +133,8 @@ const Headshot = styled.img`
 `;
 
 const Name = styled.div`
-    background-color: white;
+    background-color: ${(props) => props.theme.backgroundColor};
+    color: ${(props) => (props.theme.type === 'dark' ? 'white' : 'black')};
     display: flex;
     justify-content: center;
     font-family: 'Roboto Flex', sans-serif;
@@ -110,7 +148,7 @@ const Name = styled.div`
 `;
 
 const Navbar = styled.div<{ showShadow?: boolean }>`
-    background-color: white;
+    background-color: ${(props) => props.theme.backgroundColor};
     box-shadow: ${(props) => (props.showShadow ? '0px 3px 22px 1px rgba(0, 0, 0, 0.175)' : 'none')};
     display: flex;
     justify-content: center;
@@ -123,6 +161,7 @@ const Navbar = styled.div<{ showShadow?: boolean }>`
 
 const NavTab = styled.div<{ isActive?: boolean }>`
     border-bottom: var(--rem-2px) solid ${(props) => (props.isActive ? '#648feb' : 'transparent')};
+    color: ${(props) => (props.theme.type === 'dark' ? 'white' : '#2b2b2b')};
     cursor: pointer;
     font-size: var(--rem-18px);
     margin: 0 var(--rem-16px);

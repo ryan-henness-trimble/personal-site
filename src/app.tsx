@@ -1,24 +1,29 @@
 import { h } from 'preact';
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 import Header from './sections/components/Header';
 import './styles/styles.css';
 import useAos from './hooks/useAos';
 import About from './sections/About/About';
 import Experience from './sections/Experience/Experience';
 import Contact from './sections/Contact/Contact';
+import { DarkTheme, LightTheme } from './styles/Theme.models';
+import useScheme from './hooks/useScheme';
 
 const App = () => {
+    const { scheme, handleChangeScheme } = useScheme();
     useAos();
 
     return (
-        <AppStyles>
-            <Header />
-            <Content>
-                <About />
-                <Experience />
-                <Contact />
-            </Content>
-        </AppStyles>
+        <ThemeProvider theme={scheme === 'dark' ? DarkTheme : LightTheme}>
+            <AppStyles>
+                <Header currentScheme={scheme} onToggleScheme={handleChangeScheme} />
+                <Content>
+                    <About />
+                    <Experience />
+                    <Contact />
+                </Content>
+            </AppStyles>
+        </ThemeProvider>
     );
 };
 

@@ -21,8 +21,9 @@ const Section = (props: Props) => (
 export default Section;
 
 const SectionContainer = styled.div<{ light: boolean; padding: string }>`
-    background-color: ${(props) => (props.light ? 'white' : '#648feb')};
-    color: ${(props) => (props.light ? 'black' : 'white')};
+    background-color: ${(props) => (props.light ? props.theme.backgroundColor : '#648feb')};
+    color: ${(props) =>
+        props.light ? (props.theme.type === 'dark' ? 'white' : 'black') : 'white'};
     display: flex;
     justify-content: center;
     overflow: hidden;
@@ -47,7 +48,7 @@ const Title = styled.div`
 
 const Text = styled.div<{ center: boolean }>`
     align-items: ${(props) => (props.center ? 'center' : 'normal')};
-    color: #2b2b2b;
+    color: ${(props) => (props.theme.type === 'dark' ? 'white' : '#2b2b2b')};
     display: flex;
     flex-direction: column;
     font-family: 'Roboto', sans-serif;

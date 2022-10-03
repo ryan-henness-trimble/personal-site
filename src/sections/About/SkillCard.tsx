@@ -30,10 +30,9 @@ export default SkillCard;
 
 const Card = styled.div<{ r: number; g: number; b: number }>`
     align-items: center;
-    background: rgb(255, 255, 255);
     background: linear-gradient(
         0deg,
-        white 0%,
+        ${(props) => (props.theme.type === 'dark' ? '#222222' : 'white')} 0%,
         rgba(${(props) => props.r}, ${(props) => props.g}, ${(props) => props.b}, 0.15) 100%
     );
     border: var(--rem-1px) solid var(--col-persona-gray);
