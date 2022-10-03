@@ -22,14 +22,10 @@ const Header = (props: Props): JSX.Element => {
             <TopRow>
                 <ThemeToggle>
                     <ThemeControl
-                        isOn={props.currentScheme === 'light'}
-                        onClick={() => props.onToggleScheme('light')}>
-                        ☀️
-                    </ThemeControl>
-                    <ThemeControl
-                        isOn={props.currentScheme === 'dark'}
-                        onClick={() => props.onToggleScheme('dark')}>
-                        🌙
+                        onClick={() =>
+                            props.onToggleScheme(props.currentScheme === 'dark' ? 'light' : 'dark')
+                        }>
+                        {props.currentScheme === 'light' ? '☀️' : '🌙'}
                     </ThemeControl>
                 </ThemeToggle>
                 <Resume
@@ -65,7 +61,7 @@ const TopRow = styled.div`
     align-items: center;
     background-color: ${(props) => props.theme.backgroundColor};
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     height: 2.5rem;
     padding: var(--rem-8px) 0;
     position: sticky;
@@ -81,14 +77,15 @@ const ThemeToggle = styled.div`
     display: flex;
 `;
 
-const ThemeControl = styled.div<{ isOn: string }>`
+const ThemeControl = styled.div`
     cursor: pointer;
-    filter: ${(props) => (props.isOn ? 'grayscale(0%)' : 'grayscale(100%)')};
-    margin-right: var(--rem-4px);
     transition: transform 0.4s;
+    user-select: none;
 
-    &:hover {
-        transform: ${(props) => (props.isOn ? 'none' : 'rotate(-0.1turn)')};
+    @media (min-width: 450px) {
+        &:hover {
+            transform: rotate(-0.1turn);
+        }
     }
 `;
 
@@ -102,7 +99,7 @@ const Resume = styled.div`
     display: flex;
     font-size: var(--rem-12px);
     justify-content: center;
-    margin: 0 var(--rem-16px);
+    margin: 0 var(--rem-16px) 0 var(--rem-8px);
     padding: 0 var(--rem-6px);
     transition: background-color 0.4s;
 
