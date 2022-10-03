@@ -30,7 +30,7 @@ const Contact = () => {
                                 <GitHub height="3rem" width="3rem" />
                             </Icon>
                         </Icons>
-                        <span> 📧 ryanhenness@gmail.com</span>
+                        <span>📧 ryanhenness@gmail.com</span>
                     </ContactInfo>
                     <MiniSection
                         onClick={() =>
