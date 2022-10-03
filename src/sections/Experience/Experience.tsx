@@ -21,7 +21,7 @@ const Experience = () => {
     return (
         <Fragment>
             <div id="exp" />
-            <Section title="Experience 😎">
+            <Section title="Experience ✨">
                 <SectionCollapser collapse={!showingMore}>
                     <Point
                         data-aos="flip-up"
