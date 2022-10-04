@@ -32,7 +32,7 @@ const Card = styled.div<{ r: number; g: number; b: number }>`
     align-items: center;
     background: linear-gradient(
         0deg,
-        ${(props) => (props.theme.type === 'dark' ? '#222222' : 'white')} 0%,
+        ${(props) => props.theme.skillCardBackground} 0%,
         rgba(${(props) => props.r}, ${(props) => props.g}, ${(props) => props.b}, 0.15) 100%
     );
     border: var(--rem-1px) solid var(--col-persona-gray);

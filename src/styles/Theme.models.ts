@@ -8,6 +8,21 @@ interface Theme {
     secondaryDarker: string;
     accent: string;
     type: string;
+
+    sectionText: string;
+    coloredSectionText: string;
+    coloredSectionBackground: string;
+
+    name: string;
+
+    resumeButton: string;
+    resumeButtonHover: string;
+
+    experienceCardBackground: string;
+    skillCardBackground: string;
+
+    contactIconFill: string;
+    contactIconHover: string;
 }
 
 export const DarkTheme: Theme = {
@@ -20,6 +35,16 @@ export const DarkTheme: Theme = {
     secondaryDarker: '#4a7ce8',
     accent: '#8B43A1',
     type: 'dark',
+    sectionText: 'white',
+    coloredSectionText: 'white',
+    coloredSectionBackground: '#282d39',
+    name: 'white',
+    resumeButton: 'white',
+    resumeButtonHover: '#404040',
+    experienceCardBackground: '#2f3646',
+    skillCardBackground: '#222222',
+    contactIconFill: 'white',
+    contactIconHover: '#404040',
 };
 
 export const LightTheme: Theme = {
@@ -32,4 +57,14 @@ export const LightTheme: Theme = {
     secondaryDarker: '#eabf5d',
     accent: '#B4EB4D',
     type: 'light',
+    sectionText: '#2b2b2b',
+    coloredSectionText: 'white',
+    coloredSectionBackground: '#648feb',
+    name: 'black',
+    resumeButton: '#6b6b6b',
+    resumeButtonHover: '#f6f6f6',
+    experienceCardBackground: '#4a7ce8',
+    skillCardBackground: 'white',
+    contactIconFill: '#2b2b2b',
+    contactIconHover: '#eaeaea',
 };

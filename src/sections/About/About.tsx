@@ -6,7 +6,7 @@ const About = () => {
     return (
         <Fragment>
             <div id="about" />
-            <Section padding="1rem 0 2.5rem 0" title="About 📝" light>
+            <Section padding="1rem 0 2.5rem 0" title="About 📝" colored>
                 <SectionGroup>
                     Hey, I’m Ryan 👋 I’m a developer based in Portland, Oregon. I graduated with a
                     Bachelor of Science in Computer Science from the University of Portland in 2018.

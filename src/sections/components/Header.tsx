@@ -93,8 +93,7 @@ const Resume = styled.div`
     align-items: center;
     border-radius: var(--rem-8px);
     border: var(--rem-1px) solid var(--col-personal-gray-darker);
-    color: ${(props) =>
-        props.theme.type === 'dark' ? 'white' : 'var(--col-personal-gray-darker)'};
+    color: ${(props) => props.theme.resumeButton};
     cursor: pointer;
     display: flex;
     font-size: var(--rem-12px);
@@ -105,7 +104,7 @@ const Resume = styled.div`
 
     @media (hover: hover) {
         &:hover {
-            background-color: ${(props) => (props.theme.type === 'dark' ? '#404040' : '#f6f6f6')};
+            background-color: ${(props) => props.theme.resumeButtonHover};
         }
     }
 `;
@@ -133,7 +132,7 @@ const Headshot = styled.img`
 
 const Name = styled.div`
     background-color: ${(props) => props.theme.background};
-    color: ${(props) => (props.theme.type === 'dark' ? 'white' : 'black')};
+    color: ${(props) => props.theme.name};
     display: flex;
     justify-content: center;
     font-family: 'Roboto Flex', sans-serif;
@@ -161,7 +160,7 @@ const Navbar = styled.div<{ showShadow?: boolean }>`
 const NavTab = styled.div<{ isActive?: boolean }>`
     border-bottom: var(--rem-2px) solid
         ${(props) => (props.isActive ? props.theme.primary : 'transparent')};
-    color: ${(props) => (props.theme.type === 'dark' ? 'white' : '#2b2b2b')};
+    color: ${(props) => props.theme.sectionText};
     cursor: pointer;
     font-size: var(--rem-18px);
     margin: 0 var(--rem-16px);
