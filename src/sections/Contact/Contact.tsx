@@ -86,7 +86,7 @@ const Icon = styled.div`
 `;
 
 const MiniSection = styled.div`
-    background-color: ${(props) => props.theme.backgroundColor};
+    background-color: ${(props) => props.theme.background};
     color: ${(props) => (props.theme.type === 'dark' ? 'white' : '#2b2b2b')};
     cursor: pointer;
     text-align: center;

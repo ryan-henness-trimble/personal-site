@@ -1,35 +1,35 @@
 interface Theme {
-    backgroundColor: string;
-    colorPrimary: string;
-    colorPrimaryMid: string;
-    colorPrimaryDarker: string;
-    colorSecondary: string;
-    colorSecondaryLighter: string;
-    colorSecondaryDarker: string;
-    colorAccent: string;
+    background: string;
+    primary: string;
+    primaryMid: string;
+    primaryDarker: string;
+    secondary: string;
+    secondaryLighter: string;
+    secondaryDarker: string;
+    accent: string;
     type: string;
 }
 
 export const DarkTheme: Theme = {
-    backgroundColor: '#222222',
-    colorPrimary: '#ecc76f',
-    colorPrimaryMid: '#ebc265',
-    colorPrimaryDarker: '#eabf5d',
-    colorSecondary: '#4f7fe8',
-    colorSecondaryLighter: '#648feb',
-    colorSecondaryDarker: '#4a7ce8',
-    colorAccent: '#8B43A1',
+    background: '#222222',
+    primary: '#ecc76f',
+    primaryMid: '#ebc265',
+    primaryDarker: '#eabf5d',
+    secondary: '#4f7fe8',
+    secondaryLighter: '#648feb',
+    secondaryDarker: '#4a7ce8',
+    accent: '#8B43A1',
     type: 'dark',
 };
 
 export const LightTheme: Theme = {
-    backgroundColor: 'white',
-    colorPrimary: '#648feb',
-    colorPrimaryMid: '#4f7fe8',
-    colorPrimaryDarker: '#4a7ce8',
-    colorSecondary: '#ebc265',
-    colorSecondaryLighter: '#ecc76f',
-    colorSecondaryDarker: '#eabf5d',
-    colorAccent: '#B4EB4D',
+    background: 'white',
+    primary: '#648feb',
+    primaryMid: '#4f7fe8',
+    primaryDarker: '#4a7ce8',
+    secondary: '#ebc265',
+    secondaryLighter: '#ecc76f',
+    secondaryDarker: '#eabf5d',
+    accent: '#B4EB4D',
     type: 'light',
 };
