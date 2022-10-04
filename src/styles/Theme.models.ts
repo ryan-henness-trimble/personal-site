@@ -1,3 +1,4 @@
+// TODO - Filter this down to global styles, and move specific colors to their components.
 interface Theme {
     background: string;
     primary: string;
@@ -8,19 +9,14 @@ interface Theme {
     secondaryDarker: string;
     accent: string;
     type: string;
-
     sectionText: string;
     coloredSectionText: string;
     coloredSectionBackground: string;
-
     name: string;
-
     resumeButton: string;
     resumeButtonHover: string;
-
     experienceCardBackground: string;
     skillCardBackground: string;
-
     contactIconFill: string;
     contactIconHover: string;
 }
