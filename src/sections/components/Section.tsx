@@ -23,7 +23,7 @@ export default Section;
 const SectionContainer = styled.div<{ light: boolean; padding: string }>`
     background-color: ${(props) =>
         props.light
-            ? props.theme.backgroundColor
+            ? props.theme.background
             : props.theme.type === 'dark'
             ? 'var(--dark-col-personal-blue)'
             : 'var(--col-personal-blue)'};

@@ -59,7 +59,7 @@ export default Header;
 
 const TopRow = styled.div`
     align-items: center;
-    background-color: ${(props) => props.theme.backgroundColor};
+    background-color: ${(props) => props.theme.background};
     display: flex;
     justify-content: flex-end;
     height: 2.5rem;
@@ -111,7 +111,7 @@ const Resume = styled.div`
 `;
 
 const HeadshotContainer = styled.div`
-    background-color: ${(props) => props.theme.backgroundColor};
+    background-color: ${(props) => props.theme.background};
     display: flex;
     height: 100%;
     justify-content: center;
@@ -119,7 +119,7 @@ const HeadshotContainer = styled.div`
 `;
 
 const Headshot = styled.img`
-    border: var(--rem-4px) solid ${(props) => props.theme.colorPrimary};
+    border: var(--rem-4px) solid ${(props) => props.theme.primary};
     border-radius: 50%;
     box-shadow: 0 5px 28px 1px
         ${(props) =>
@@ -132,7 +132,7 @@ const Headshot = styled.img`
 `;
 
 const Name = styled.div`
-    background-color: ${(props) => props.theme.backgroundColor};
+    background-color: ${(props) => props.theme.background};
     color: ${(props) => (props.theme.type === 'dark' ? 'white' : 'black')};
     display: flex;
     justify-content: center;
@@ -147,7 +147,7 @@ const Name = styled.div`
 `;
 
 const Navbar = styled.div<{ showShadow?: boolean }>`
-    background-color: ${(props) => props.theme.backgroundColor};
+    background-color: ${(props) => props.theme.background};
     box-shadow: ${(props) => (props.showShadow ? '0px 3px 22px 1px rgba(0, 0, 0, 0.175)' : 'none')};
     display: flex;
     justify-content: center;
@@ -160,7 +160,7 @@ const Navbar = styled.div<{ showShadow?: boolean }>`
 
 const NavTab = styled.div<{ isActive?: boolean }>`
     border-bottom: var(--rem-2px) solid
-        ${(props) => (props.isActive ? props.theme.colorPrimary : 'transparent')};
+        ${(props) => (props.isActive ? props.theme.primary : 'transparent')};
     color: ${(props) => (props.theme.type === 'dark' ? 'white' : '#2b2b2b')};
     cursor: pointer;
     font-size: var(--rem-18px);
@@ -174,7 +174,7 @@ const NavTab = styled.div<{ isActive?: boolean }>`
 
     @media (hover: hover) {
         &:hover:not(${(props) => !props.isActive}) {
-            border-bottom: var(--rem-1px) solid ${(props) => props.theme.colorPrimary};
+            border-bottom: var(--rem-1px) solid ${(props) => props.theme.primary};
         }
     }
 `;

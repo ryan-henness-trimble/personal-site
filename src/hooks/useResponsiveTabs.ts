@@ -11,7 +11,7 @@ const useResponsiveTabs = (tabs: { id: string; display: string }[]) => {
         setCurrentTabId(id);
         setShouldUpdateTabOnScroll(false);
         window.scrollTo({
-            top: getAbsoluteTabScrollOffset(id) - 130,
+            top: getAbsoluteTabScrollOffset(id) - 140,
             behavior: 'smooth',
         });
     };
@@ -34,7 +34,7 @@ const useResponsiveTabs = (tabs: { id: string; display: string }[]) => {
     }, [shouldUpdateTabOnScroll, lastWindowScrollY, updateCurrentTab]);
 
     const handleWindowScroll = useCallback(() => {
-        setHasScrolled(window.scrollY > 150);
+        setHasScrolled(window.scrollY > 200);
         setLastWindowScrollY(window.scrollY);
         if (shouldUpdateTabOnScroll) {
             handleTabUpdate();
