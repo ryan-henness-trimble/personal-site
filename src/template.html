@@ -7,11 +7,22 @@
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta property="og:image" content="assets/og.png"/>
+        <meta name="description" content="Ryan Henness - Web Developer personal site">
         <link
             rel="apple-touch-icon"
             href="<%= htmlWebpackPlugin.files.publicPath %>assets/icons/apple-touch-icon.png" />
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XB645YH80J"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-XB645YH80J');
+        </script>
         <% preact.headEnd %>
     </head>
     <body>

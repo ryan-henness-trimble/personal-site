@@ -25,10 +25,13 @@ const ExperienceCard = (props: Props) => {
 export default ExperienceCard;
 
 const Card = styled.div`
-    background-color: ${(props) => props.theme.experienceCardBackground};
+    background-color: var(--col-personal-blue-mid);
     border-radius: var(--rem-16px);
-    box-shadow: 0 5px 32px 1px rgba(0, 0, 0, 0.125);
+    box-shadow: var(--box-shadow-md);
     padding: var(--rem-16px) var(--rem-24px);
+
+    ${(props) =>
+        props.theme.type === 'dark' && `background-color: var(--dark-col-personal-blue-mid)`}
 `;
 
 const Company = styled.div`
@@ -38,8 +41,10 @@ const Company = styled.div`
     font-family: 'Roboto Flex', sans-serif;
     font-size: var(--rem-20px);
 
-    &:hover {
-        text-decoration: underline;
+    @media (hover: hover) {
+        &:hover {
+            text-decoration: underline;
+        }
     }
 `;
 

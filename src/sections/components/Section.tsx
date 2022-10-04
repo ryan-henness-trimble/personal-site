@@ -14,21 +14,31 @@ const Section = (props: Props) => (
     <SectionContainer id={props.id} colored={props.colored} padding={props.padding}>
         <InnerContainer center={props.center} data-aos="fade-up" data-aos-duration="400">
             <Title>{props.title}</Title>
-            <Text center={props.center}>{props.children}</Text>
+            <Text center={props.center} colored={props.colored}>
+                {props.children}
+            </Text>
         </InnerContainer>
     </SectionContainer>
 );
 export default Section;
 
 const SectionContainer = styled.div<{ colored: boolean; padding: string }>`
-    background-color: ${(props) =>
-        props.colored ? props.theme.background : props.theme.coloredSectionBackground};
-    color: ${(props) => (props.colored ? props.theme.sectionText : props.theme.coloredSectionText)};
+    background-color: ${(props) => (props.colored ? 'var(--col-personal-blue)' : 'white')};
+    color: ${(props) => (props.colored ? 'white' : '#2b2b2b')};
     display: flex;
     justify-content: center;
     overflow: hidden;
     padding: ${(props) => (props.padding ? props.padding : '2.5rem 0')};
     width: 100%;
+
+    ${(props) =>
+        props.theme.type === 'dark' &&
+        `
+            background-color: ${
+                props.colored ? 'var(--dark-col-personal-blue)' : props.theme.background
+            };
+            color: white;
+    `}
 `;
 
 const InnerContainer = styled.div`
@@ -46,9 +56,9 @@ const Title = styled.div`
     margin-bottom: 1rem;
 `;
 
-const Text = styled.div<{ center: boolean }>`
+const Text = styled.div<{ center: boolean; colored: boolean }>`
     align-items: ${(props) => (props.center ? 'center' : 'normal')};
-    color: ${(props) => props.theme.sectionText};
+    color: ${(props) => (props.colored ? 'white' : '#2b2b2b')};
     display: flex;
     flex-direction: column;
     font-family: 'Roboto', sans-serif;
@@ -60,6 +70,8 @@ const Text = styled.div<{ center: boolean }>`
         font-weight: 700;
         margin: 0 0 0.3rem 0;
     }
+
+    ${(props) => props.theme.type === 'dark' && `color: white`}
 `;
 
 export const SectionGroup = styled.div`

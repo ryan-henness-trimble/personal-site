@@ -1,5 +1,4 @@
 import { h } from 'preact';
-import { SectionGroup } from '../components/Section';
 import SkillCard from './SkillCard';
 import { Fragment } from 'react';
 import styled from 'styled-components';
@@ -8,7 +7,7 @@ const Skills = () => {
     return (
         <Fragment>
             <div>
-                I've worked with a variety of web technologies, here are some I've had my hands on
+                I've worked with a variety of technologies, here are some I've had my hands on
                 recently:
             </div>
             <Columns>

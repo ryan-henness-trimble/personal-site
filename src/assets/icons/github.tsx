@@ -3,6 +3,7 @@ import { h } from 'preact';
 interface Props {
     height: string;
     fill?: string;
+    onClick?: () => void;
     width: string;
 }
 
@@ -11,6 +12,7 @@ const GitHub = (props: Props) => {
         <svg
             width={props.width}
             height={props.height}
+            onClick={props.onClick}
             viewBox="0 0 1024 1024"
             fill={props.fill ? props.fill : '#2b2b2b'}
             xmlns="http://www.w3.org/2000/svg">

@@ -8,7 +8,7 @@ const Contact = () => {
     return (
         <Fragment>
             <div id="contact" />
-            <Section title="Contact 🤝" colored padding="2.5rem 0 0.5rem 0">
+            <Section title="Contact 🤝" padding="2.5rem 0 0.5rem 0" colored>
                 <SectionGroup>
                     <div>
                         Whether you'd like to get to know me better or just say hi, my DMs are
@@ -71,22 +71,21 @@ const Icon = styled.div`
     display: flex;
     justify-content: center;
     padding: var(--rem-12px);
-    transition: background-color 0.4s;
+    transition: background-color 0.4s ease-in;
 
     path {
-        fill: ${(props) => props.theme.contactIconFill};
+        fill: white;
     }
 
     @media (hover: hover) {
         &:hover {
-            background-color: ${(props) => props.contactIconHover};
+            background-color: var(--col-personal-blue-mid);
         }
     }
 `;
 
 const MiniSection = styled.div`
-    background-color: ${(props) => props.theme.background};
-    color: ${(props) => props.theme.sectionText};
+    color: white;
     cursor: pointer;
     text-align: center;
     font-size: var(--rem-12px);
@@ -95,9 +94,13 @@ const MiniSection = styled.div`
     margin-top: 12rem;
     overflow: hidden;
 
-    &:hover {
-        div {
-            text-decoration: underline;
+    @media (hover: hover) {
+        &:hover {
+            div {
+                text-decoration: underline;
+            }
         }
     }
+
+    ${(props) => props.theme.type === 'dark' && `color: white;`}
 `;

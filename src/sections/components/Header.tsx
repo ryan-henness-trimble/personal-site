@@ -6,6 +6,7 @@ import { Scheme } from '../../hooks/useScheme';
 const tabs = [
     { id: 'about', display: 'About' },
     { id: 'exp', display: 'Experience' },
+    { id: 'projects', display: 'Projects' },
     { id: 'contact', display: 'Contact' },
 ];
 
@@ -20,42 +21,56 @@ const Header = (props: Props): JSX.Element => {
     return (
         <Fragment>
             <TopRow>
-                <ThemeToggle>
-                    <ThemeControl
-                        onClick={() =>
-                            props.onToggleScheme(props.currentScheme === 'dark' ? 'light' : 'dark')
-                        }>
-                        {props.currentScheme === 'light' ? '☀️' : '🌙'}
-                    </ThemeControl>
-                </ThemeToggle>
+                <ThemeToggle {...props} />
                 <Resume
                     onClick={() =>
                         window.open(
-                            'https://github.com/ryan-henness-trimble/personal-site/resume.pdf'
+                            'https://github.com/ryan-henness-trimble/personal-site/blob/main/Resume.pdf'
                         )
                     }>
                     Resume
                 </Resume>
             </TopRow>
             <HeadshotContainer>
-                <Headshot src="assets/headshot.png" />
+                <Headshot src="assets/headshot.png" alt="Headshot" />
             </HeadshotContainer>
             <Name>Ryan Henness</Name>
-            <Navbar id="nav" showShadow={hasScrolled}>
-                {tabs.map((tab) => (
-                    <NavTab
-                        isActive={tab.id === currentTabId}
-                        key={tab.id}
-                        onClick={() => handleTabClick(tab.id)}>
-                        {tab.display}
-                    </NavTab>
-                ))}
-            </Navbar>
+            <NavigationBar
+                currentTabId={currentTabId}
+                hasScrolled={hasScrolled}
+                handleTabClick={handleTabClick}
+            />
         </Fragment>
     );
 };
 
 export default Header;
+
+const ThemeToggle = (props: Props) => (
+    <Toggle>
+        <ThemeControl
+            onClick={() => props.onToggleScheme(props.currentScheme === 'dark' ? 'light' : 'dark')}>
+            {props.currentScheme === 'light' ? '☀️' : '🌙'}
+        </ThemeControl>
+    </Toggle>
+);
+
+const NavigationBar = (props: {
+    hasScrolled: boolean;
+    currentTabId: string;
+    handleTabClick: (tabId: string) => void;
+}) => (
+    <Navbar id="nav" showShadow={props.hasScrolled}>
+        {tabs.map((tab) => (
+            <NavTab
+                isActive={tab.id === props.currentTabId}
+                key={tab.id}
+                onClick={() => props.handleTabClick(tab.id)}>
+                {tab.display}
+            </NavTab>
+        ))}
+    </Navbar>
+);
 
 const TopRow = styled.div`
     align-items: center;
@@ -70,7 +85,7 @@ const TopRow = styled.div`
     z-index: 1;
 `;
 
-const ThemeToggle = styled.div`
+const Toggle = styled.div`
     align-items: center;
     justify-content: center;
     margin-left: var(--rem-8px);
@@ -79,7 +94,7 @@ const ThemeToggle = styled.div`
 
 const ThemeControl = styled.div`
     cursor: pointer;
-    transition: transform 0.4s;
+    transition: transform 0.4s ease-in;
     user-select: none;
 
     @media (hover: hover) {
@@ -93,20 +108,31 @@ const Resume = styled.div`
     align-items: center;
     border-radius: var(--rem-8px);
     border: var(--rem-1px) solid var(--col-personal-gray-darker);
-    color: ${(props) => props.theme.resumeButton};
+    color: #6b6b6b;
     cursor: pointer;
     display: flex;
     font-size: var(--rem-12px);
     justify-content: center;
     margin: 0 var(--rem-16px) 0 var(--rem-8px);
     padding: 0 var(--rem-6px);
-    transition: background-color 0.4s;
+    transition: background-color 0.4s ease-in;
 
     @media (hover: hover) {
         &:hover {
-            background-color: ${(props) => props.theme.resumeButtonHover};
+            background-color: #f6f6f6;
         }
     }
+
+    ${(props) =>
+        props.theme.type === 'dark' &&
+        `
+        color: white;
+        @media (hover: hover) {
+            &:hover {
+                background-color: #404040;
+            }
+        }
+    `};
 `;
 
 const HeadshotContainer = styled.div`
@@ -120,9 +146,11 @@ const HeadshotContainer = styled.div`
 const Headshot = styled.img`
     border: var(--rem-4px) solid ${(props) => props.theme.primary};
     border-radius: 50%;
-    box-shadow: 0 5px 28px 1px
+    box-shadow: 0 var(--rem-4px) var(--rem-28px) var(--rem-1px)
         ${(props) =>
-            props.theme.type === 'light' ? 'rgba(100, 143, 235, 0.2)' : 'rgba(236, 199, 111, 0.2)'};
+            props.theme.type === 'light'
+                ? 'var(--box-shadow-header-light)'
+                : 'var(--box-shadow-header-dark)'};
     height: ${(props) => (props.hide ? 'var(--rem-30px)' : '9rem')};
     margin-bottom: var(--rem-16px);
     transition: height 0.3s ease-in, width 0.3s ease-in;
@@ -132,7 +160,7 @@ const Headshot = styled.img`
 
 const Name = styled.div`
     background-color: ${(props) => props.theme.background};
-    color: ${(props) => props.theme.name};
+    color: black;
     display: flex;
     justify-content: center;
     font-family: 'Roboto Flex', sans-serif;
@@ -143,11 +171,13 @@ const Name = styled.div`
     text-transform: uppercase;
     top: 3rem;
     z-index: 4;
+
+    ${(props) => props.theme.type === 'dark' && `color: white`}
 `;
 
 const Navbar = styled.div<{ showShadow?: boolean }>`
     background-color: ${(props) => props.theme.background};
-    box-shadow: ${(props) => (props.showShadow ? '0px 3px 22px 1px rgba(0, 0, 0, 0.175)' : 'none')};
+    box-shadow: ${(props) => (props.showShadow ? 'var(--box-shadow-md)' : 'none')};
     display: flex;
     justify-content: center;
     padding-bottom: var(--rem-12px);
@@ -160,7 +190,7 @@ const Navbar = styled.div<{ showShadow?: boolean }>`
 const NavTab = styled.div<{ isActive?: boolean }>`
     border-bottom: var(--rem-2px) solid
         ${(props) => (props.isActive ? props.theme.primary : 'transparent')};
-    color: ${(props) => props.theme.sectionText};
+    color: #2b2b2b;
     cursor: pointer;
     font-size: var(--rem-18px);
     margin: 0 var(--rem-16px);
@@ -168,7 +198,7 @@ const NavTab = styled.div<{ isActive?: boolean }>`
     user-select: none;
 
     &:active {
-        border-bottom: var(--rem-2px) solid var(--col-personal-blue);
+        border-bottom: var(--rem-2px) ${(props) => props.theme.primary};
     }
 
     @media (hover: hover) {
@@ -176,4 +206,6 @@ const NavTab = styled.div<{ isActive?: boolean }>`
             border-bottom: var(--rem-1px) solid ${(props) => props.theme.primary};
         }
     }
+
+    ${(props) => props.theme.type === 'dark' && `color: white`};
 `;
