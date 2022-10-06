@@ -18,7 +18,8 @@ const About = () => {
                     younger. This passion, along with my knack for problem solving, helped spark my
                     interest for software development. I enjoy having a vision of what something is
                     supposed to be, working with others through the problems creating it, and
-                    feeling rewarded when seeing it all come together.
+                    feeling rewarded when seeing it all come together. My main goals right now are
+                    to keep learning and making meaningful contributions to the teams I'm a part of.
                 </SectionGroup>
                 <SectionGroup>
                     <Skills />

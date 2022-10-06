@@ -7,7 +7,7 @@ const Skills = () => {
     return (
         <Fragment>
             <div>
-                I've worked with a variety of technologies, here are some I've had my hands on
+                I've got to work with a variety of technologies, here are some I've had my hands on
                 recently:
             </div>
             <Columns>
