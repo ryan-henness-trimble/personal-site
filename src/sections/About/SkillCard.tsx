@@ -23,6 +23,7 @@ const SkillCard = (props: Props) => {
             g={props.color.g}
             b={props.color.b}
             data-aos="fade-left"
+            data-aos-anchor="#skill-cards-anchor"
             data-aos-delay={props.animationDelay}
             data-aos-duration="400"
             data-aos-id={aosId}>

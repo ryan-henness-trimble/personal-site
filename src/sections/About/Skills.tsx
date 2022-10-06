@@ -11,7 +11,7 @@ const Skills = () => {
                 recently:
             </div>
             <Columns>
-                <div>
+                <div id="skill-cards-anchor">
                     <SkillCard
                         animationDelay={0}
                         color={{ r: 240, g: 219, b: 79 }}
