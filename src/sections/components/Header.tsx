@@ -82,7 +82,7 @@ const TopRow = styled.div`
     position: sticky;
     top: 0;
     width: 100%;
-    z-index: 1;
+    z-index: 4;
 `;
 
 const Toggle = styled.div`
@@ -155,7 +155,7 @@ const Headshot = styled.img`
     margin-bottom: var(--rem-16px);
     transition: height 0.3s ease-in, width 0.3s ease-in;
     width: ${(props) => (props.hide ? '0' : '9rem')};
-    z-index: 5;
+    z-index: 9;
 `;
 
 const Name = styled.div`
@@ -170,7 +170,7 @@ const Name = styled.div`
     position: sticky;
     text-transform: uppercase;
     top: 3rem;
-    z-index: 4;
+    z-index: 8;
 
     ${(props) => props.theme.type === 'dark' && `color: white`}
 `;
@@ -184,7 +184,7 @@ const Navbar = styled.div<{ showShadow?: boolean }>`
     position: sticky;
     top: 6.4rem;
     transition: box-shadow 0.3s ease-in;
-    z-index: 1;
+    z-index: 4;
 `;
 
 const NavTab = styled.div<{ isActive?: boolean }>`

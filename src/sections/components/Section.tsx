@@ -1,5 +1,6 @@
 import { h, ComponentChildren } from 'preact';
 import styled from 'styled-components';
+import useAosAnimation from '../../hooks/useAosAnimation';
 
 interface Props {
     center?: boolean;
@@ -10,16 +11,25 @@ interface Props {
     title: string;
 }
 
-const Section = (props: Props) => (
-    <SectionContainer id={props.id} colored={props.colored} padding={props.padding}>
-        <InnerContainer center={props.center} data-aos="fade-up" data-aos-duration="400">
-            <Title>{props.title}</Title>
-            <Text center={props.center} colored={props.colored}>
-                {props.children}
-            </Text>
-        </InnerContainer>
-    </SectionContainer>
-);
+const Section = (props: Props) => {
+    const [aosClassName, aosId] = useAosAnimation();
+
+    return (
+        <SectionContainer id={props.id} colored={props.colored} padding={props.padding}>
+            <InnerContainer
+                className={aosClassName}
+                center={props.center}
+                data-aos="fade-up"
+                data-aos-duration="400"
+                data-aos-id={aosId}>
+                <Title>{props.title}</Title>
+                <Text center={props.center} colored={props.colored}>
+                    {props.children}
+                </Text>
+            </InnerContainer>
+        </SectionContainer>
+    );
+};
 export default Section;
 
 const SectionContainer = styled.div<{ colored: boolean; padding: string }>`

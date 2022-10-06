@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import ExperienceCard from './ExperienceCard';
 import { useState } from 'preact/hooks';
 import { Link } from '../../app';
+import useAosAnimation from '../../hooks/useAosAnimation';
 
 const Experience = () => {
     const [showingMore, setShowingMore] = useState(false);
@@ -47,115 +48,153 @@ export default Experience;
 
 const getClientHeightById = (id: string) => document.querySelector(`#${id}`)?.clientHeight ?? 0;
 
-const TrimbleViewpoint = () => (
-    <Point data-aos="flip-up" data-aos-duration="400" padding="1rem 2.5rem 2.5rem 2.5rem">
-        <ExperienceCard
-            title="Software Developer"
-            length="Dec 2019 - Present"
-            company="Trimble Viewpoint"
-            companyUrl="https://www.viewpoint.com/company/about">
-            <div>
-                I've grown the most as a developer here at Trimble Viewpoint, and have met some
-                amazing developers along the way. This is where I was first introduced to SPAs,
-                getting the chance to contribute to an Angular app. That experience taught me what
-                goes into developing a production-ready web app, and what ultimately led me to dive
-                deeper into frontend development. I have taken what I learned from that project and
-                now primarily work on a React app that acts as a single sign-on landing page for
-                Trimble apps. On the side, I've been helping develop Trimble's open and inner-source
-                practices. I lead the development of an open-source web component library that
-                adheres to Trimble's Modus design system, you can find it at{' '}
-                <Link onClick={() => window.open('https://modus-web-components.trimble.com/')}>
-                    Modus Web Components
-                </Link>
-                .
-            </div>
-            <TechNotes
-                notes={[
-                    'JavaScript',
-                    'React',
-                    'Stencil.js',
-                    'Azure DevOps',
-                    'TypeScript',
-                    'Angular',
-                    'Storybook',
-                    'GitHub',
-                ]}
-            />
-        </ExperienceCard>
-    </Point>
-);
+const TrimbleViewpoint = () => {
+    const [aosClassName, aosId] = useAosAnimation();
 
-const JetGlobal = (props: { id: string }) => (
-    <Point id={props.id} data-aos="flip-up" data-aos-duration="400">
-        <ExperienceCard
-            title="Software Developer"
-            length="Jul 2018 - Aug 2019"
-            company="Jet Global"
-            companyUrl="https://insightsoftware.com/jet/">
-            <div>
-                I was hired at Jet Global (formerly Jet Reports) as a new grad. I mainly worked on
-                resolving bugs within our team's .NET C# desktop app, which was a plugin for
-                Microsoft Excel. I started working on features for the app toward the end of my time
-                in this position. Some of the notable contributions I made were developing an export
-                to Microsoft Word feature, implementing feature toggling, adding new analytic
-                events, and updating the app's branding when the company rebranded to Jet Global.
-                This is also where I learned how dangerous having access to cold brew on tap can be.
-            </div>
-            <TechNotes notes={['C#', 'WFP', 'Azure DevOps', 'NuGet']} />
-        </ExperienceCard>
-    </Point>
-);
+    return (
+        <Point
+            className={aosClassName}
+            data-aos="flip-up"
+            data-aos-duration="400"
+            padding="1rem 2.5rem 2.5rem 2.5rem"
+            data-aos-id={aosId}>
+            <ExperienceCard
+                title="Software Developer"
+                length="Dec 2019 - Present"
+                company="Trimble Viewpoint"
+                companyUrl="https://www.viewpoint.com/company/about">
+                <div>
+                    I've grown the most as a developer here at Trimble Viewpoint, and have met some
+                    amazing developers along the way. This is where I was first introduced to SPAs,
+                    getting the chance to contribute to an Angular app. That experience taught me
+                    what goes into developing a production-ready web app, and what ultimately led me
+                    to dive deeper into frontend development. I have taken what I learned from that
+                    project and now primarily work on a React app that acts as a single sign-on
+                    landing page for Trimble apps. On the side, I've been helping develop Trimble's
+                    open and inner-source practices. I lead the development of an open-source web
+                    component library that adheres to Trimble's Modus design system, you can find it
+                    at{' '}
+                    <Link onClick={() => window.open('https://modus-web-components.trimble.com/')}>
+                        Modus Web Components
+                    </Link>
+                    .
+                </div>
+                <TechNotes
+                    notes={[
+                        'JavaScript',
+                        'React',
+                        'Stencil.js',
+                        'Azure DevOps',
+                        'TypeScript',
+                        'Angular',
+                        'Storybook',
+                        'GitHub',
+                    ]}
+                />
+            </ExperienceCard>
+        </Point>
+    );
+};
 
-const MSEI = (props: { id: string }) => (
-    <Point id={props.id} data-aos="flip-up" data-aos-duration="400">
-        <ExperienceCard
-            title="Software Developer Intern"
-            length="May 2017 - Nov 2017"
-            company="MSEI"
-            companyUrl="https://www.mst.com/MSTgroup/msei">
-            <div>
-                During this internship I maintained a C++ library that handled parameter mapping
-                used by a neurostimulator and its controller. The goal of this project was to work
-                toward connecting these neurostimulators to phones/tablets via bluetooth. This would
-                cut costs of the old (and expensive) controllers while also making the controller
-                more accessible to its users. A big chunk of my work included developing the
-                library's support for the Android (Xamarin) platform. This included debugging the
-                library and test fixtures as they were ported over.
-            </div>
-            <TechNotes notes={['C++', 'C#', 'Xamarin']} />
-        </ExperienceCard>
-    </Point>
-);
+const JetGlobal = (props: { id: string }) => {
+    const [aosClassName, aosId] = useAosAnimation();
 
-const Fiserv = (props: { id: string }) => (
-    <Point id={props.id} data-aos="flip-up" data-aos-duration="400">
-        <ExperienceCard
-            title="Software Developer Intern"
-            length="Jun 2016 - Dec 2016"
-            company="Fiserv"
-            companyUrl="https://www.fiserv.com/en.html">
-            <div>
-                This internship was a lot of fun, it was where I learned what it means to be a part
-                of a team. My main project was replacing an in-house code generator with Yeoman. I
-                also worked on a side project to help migrate the team's backlog items from TFS to
-                VersionOne using the VersionOne API. There was a hackathon during my time here where
-                I developed a Node.js web app hosted by AWS and Heroku that allowed employees to
-                upload photos to a company-wide slide show.
-            </div>
-            <TechNotes
-                notes={[
-                    'C#',
-                    'JavaScript',
-                    'Yeoman',
-                    'Facebook API',
-                    'AWS S3',
-                    'Heroku',
-                    'VersionOne API',
-                ]}
-            />
-        </ExperienceCard>
-    </Point>
-);
+    return (
+        <Point
+            className={aosClassName}
+            id={props.id}
+            data-aos="flip-up"
+            data-aos-duration="400"
+            data-aos-id={aosId}>
+            <ExperienceCard
+                title="Software Developer"
+                length="Jul 2018 - Aug 2019"
+                company="Jet Global"
+                companyUrl="https://insightsoftware.com/jet/">
+                <div>
+                    I was hired at Jet Global (formerly Jet Reports) as a new grad. I mainly worked
+                    on resolving bugs within our team's .NET C# desktop app, which was a plugin for
+                    Microsoft Excel. I started working on features for the app toward the end of my
+                    time in this position. Some of the notable contributions I made were developing
+                    an export to Microsoft Word feature, implementing feature toggling, adding new
+                    analytic events, and updating the app's branding when the company rebranded to
+                    Jet Global. This is also where I learned how dangerous having access to cold
+                    brew on tap can be.
+                </div>
+                <TechNotes notes={['C#', 'WFP', 'Azure DevOps', 'NuGet']} />
+            </ExperienceCard>
+        </Point>
+    );
+};
+
+const MSEI = (props: { id: string }) => {
+    const [aosClassName, aosId] = useAosAnimation();
+
+    return (
+        <Point
+            className={aosClassName}
+            id={props.id}
+            data-aos="flip-up"
+            data-aos-duration="400"
+            data-aos-id={aosId}>
+            <ExperienceCard
+                title="Software Developer Intern"
+                length="May 2017 - Nov 2017"
+                company="MSEI"
+                companyUrl="https://www.mst.com/MSTgroup/msei">
+                <div>
+                    During this internship I maintained a C++ library that handled parameter mapping
+                    used by a neurostimulator and its controller. The goal of this project was to
+                    work toward connecting these neurostimulators to phones/tablets via bluetooth.
+                    This would cut costs of the old (and expensive) controllers while also making
+                    the controller more accessible to its users. A big chunk of my work included
+                    developing the library's support for the Android (Xamarin) platform. This
+                    included debugging the library and test fixtures as they were ported over.
+                </div>
+                <TechNotes notes={['C++', 'C#', 'Xamarin']} />
+            </ExperienceCard>
+        </Point>
+    );
+};
+
+const Fiserv = (props: { id: string }) => {
+    const [aosClassName, aosId] = useAosAnimation();
+
+    return (
+        <Point
+            className={aosClassName}
+            id={props.id}
+            data-aos="flip-up"
+            data-aos-duration="400"
+            data-aos-id={aosId}>
+            <ExperienceCard
+                title="Software Developer Intern"
+                length="Jun 2016 - Dec 2016"
+                company="Fiserv"
+                companyUrl="https://www.fiserv.com/en.html">
+                <div>
+                    This internship was a lot of fun, it was where I learned what it means to be a
+                    part of a team. My main project was replacing an in-house code generator with
+                    Yeoman. I also worked on a side project to help migrate the team's backlog items
+                    from TFS to VersionOne using the VersionOne API. There was a hackathon during my
+                    time here where I developed a Node.js web app hosted by AWS and Heroku that
+                    allowed employees to upload photos to a company-wide slide show.
+                </div>
+                <TechNotes
+                    notes={[
+                        'C#',
+                        'JavaScript',
+                        'Yeoman',
+                        'Facebook API',
+                        'AWS S3',
+                        'Heroku',
+                        'VersionOne API',
+                    ]}
+                />
+            </ExperienceCard>
+        </Point>
+    );
+};
 
 const TechNotes = (props: { notes: string[] }) => {
     let noteIndex = 0;

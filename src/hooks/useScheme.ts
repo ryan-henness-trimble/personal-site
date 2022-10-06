@@ -13,17 +13,9 @@ const useScheme = () => {
         setScheme(preferredScheme);
     }, []);
 
-    const handleChangeScheme = (scheme: Scheme) => {
-        setScheme(scheme);
-        triggerAosUpdate();
-    };
+    const handleChangeScheme = (scheme: Scheme) => setScheme(scheme);
 
     return { scheme, handleChangeScheme };
-};
-
-const triggerAosUpdate = () => {
-    window.scrollBy(0, 2);
-    window.scrollBy(0, -2);
 };
 
 export default useScheme;

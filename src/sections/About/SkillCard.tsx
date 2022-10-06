@@ -1,7 +1,9 @@
 import { h } from 'preact';
 import styled from 'styled-components';
+import useAosAnimation from '../../hooks/useAosAnimation';
 
 interface Props {
+    animationDelay?: number;
     color: {
         r: number;
         g: number;
@@ -12,13 +14,18 @@ interface Props {
 }
 
 const SkillCard = (props: Props) => {
+    const [aosClassName, aosId] = useAosAnimation();
+
     return (
         <Card
+            className={aosClassName}
             r={props.color.r}
             g={props.color.g}
             b={props.color.b}
             data-aos="fade-left"
-            data-aos-duration="400">
+            data-aos-delay={props.animationDelay}
+            data-aos-duration="400"
+            data-aos-id={aosId}>
             <img src={props.imageUrl} alt={props.title} />
             <Details>{props.title}</Details>
         </Card>

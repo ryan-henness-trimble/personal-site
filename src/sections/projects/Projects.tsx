@@ -2,6 +2,7 @@ import { ComponentChildren, Fragment, h } from 'preact';
 import Section, { SectionGroup } from '../components/Section';
 import styled from 'styled-components';
 import GitHub from '../../assets/icons/github';
+import useAosAnimation from '../../hooks/useAosAnimation';
 
 const Projects = () => {
     return (
@@ -44,10 +45,14 @@ const Project = (props: {
     gitHubUrl: string;
     children: ComponentChildren;
 }) => {
+    const [aosClassName, aosId] = useAosAnimation();
+
     return (
         <ProjectContainer
+            className={aosClassName}
             data-aos="fade-left"
             data-aos-duration="400"
+            data-aos-id={aosId}
             onClick={() => window.open(props.url)}>
             <IconContainer onClick={() => window.open(props.gitHubUrl)}>
                 <GitHub height="1.5rem" width="1.5rem" />
