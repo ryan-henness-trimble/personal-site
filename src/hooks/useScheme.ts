@@ -1,4 +1,3 @@
-import { h } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 
 export type Scheme = 'light' | 'dark';
@@ -14,17 +13,9 @@ const useScheme = () => {
         setScheme(preferredScheme);
     }, []);
 
-    const handleChangeScheme = (scheme: Scheme) => {
-        setScheme(scheme);
-        triggerAosUpdate();
-    };
+    const handleChangeScheme = (scheme: Scheme) => setScheme(scheme);
 
     return { scheme, handleChangeScheme };
-};
-
-const triggerAosUpdate = () => {
-    window.scrollBy(0, 1);
-    window.scrollBy(0, -1);
 };
 
 export default useScheme;

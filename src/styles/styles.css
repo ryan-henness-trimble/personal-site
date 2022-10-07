@@ -12,20 +12,29 @@
     --rem-16px: 1rem;
     --rem-20px: 1.25rem;
     --rem-24px: 1.5rem;
+    --rem-28px: 1.75rem;
     --rem-32px: 2rem;
 
-    --col-personal-blue: #648feb;
-    --col-personal-blue-mid: #4f7fe8;
-    --col-personal-blue-darker: #4a7ce8;
+    --col-personal-blue: #406ac4;
+    --col-personal-blue-mid: #31549F;
+    --col-personal-blue-darker: #2c4c90;
     --col-personal-gold: #ebc265;
     --col-personal-gold-lighter: #ecc76f;
     --col-personal-gold-darker: #eabf5d;
-    --col-personal-green: #B4EB4D;
+    --col-personal-green: #90C42D;
+    --col-personal-purple: #C45485;
     --col-personal-gray: #eaeaea;
     --col-personal-gray-darker: #6b6b6b;
+    --col-personal-light-gray: #f2f2f2;
 
     --dark-col-personal-blue: #282d39;
     --dark-col-personal-blue-mid: #2f3646;
+
+    --box-shadow-sm: 0 var(--rem-4px) var(--rem-20px) var(--rem-1px) rgba(0, 0, 0, 0.06);
+    --box-shadow-md: 0 var(--rem-4px) var(--rem-28px) var(--rem-1px) rgba(0, 0, 0, 0.175);
+    --box-shadow-lg: 0 var(--rem-4px) var(--rem-32px) var(--rem-1px) rgba(0, 0, 0, 0.125);
+    --box-shadow-header-light: 0 var(--rem-4px) var(--rem-28px) var(--rem-1px) rgba(100, 143, 235, 0.2);
+    --box-shadow-header-dark: 0 var(--rem-4px) var(--rem-28px) var(--rem-1px) rgba(236, 199, 111, 0.2);
 }
 
 html,

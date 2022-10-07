@@ -8,6 +8,7 @@ import Experience from './sections/Experience/Experience';
 import Contact from './sections/Contact/Contact';
 import { DarkTheme, LightTheme } from './styles/Theme.models';
 import useScheme from './hooks/useScheme';
+import Projects from './sections/projects/Projects';
 
 const App = () => {
     const { scheme, handleChangeScheme } = useScheme();
@@ -20,6 +21,7 @@ const App = () => {
                 <Content>
                     <About />
                     <Experience />
+                    <Projects />
                     <Contact />
                 </Content>
             </AppStyles>
@@ -30,7 +32,11 @@ const App = () => {
 export default App;
 
 const AppStyles = styled.div`
+    background-color: white;
     font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+
+    ${(props) => props.theme.type === 'dark' && `background-color: ${props.theme.background}`}
 `;
 
 const Content = styled.div`
@@ -43,7 +49,9 @@ export const Link = styled.span`
     color: var(--col-personal-gold);
     cursor: pointer;
 
-    &:hover {
-        text-decoration: underline;
+    @media (hover: hover) {
+        &:hover {
+            text-decoration: underline;
+        }
     }
 `;
