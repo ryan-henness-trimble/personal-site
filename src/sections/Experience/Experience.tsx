@@ -229,6 +229,10 @@ const Point = styled.p<{ padding?: string }>`
     padding: ${(props) => (props.padding ? props.padding : '2.5rem')};
     position: relative;
 
+    @media (max-width: 450px) {
+        padding: 1rem;
+    }
+
     &:before {
         content: '';
         position: absolute;

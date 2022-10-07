@@ -31,7 +31,7 @@ const Card = styled.div`
     padding: var(--rem-16px) var(--rem-24px);
 
     ${(props) =>
-        props.theme.type === 'dark' && `background-color: var(--dark-col-personal-blue-mid)`}
+        props.theme.type === 'dark' && `background-color: var(--dark-col-personal-blue-mid)`};
 `;
 
 const Company = styled.div`
@@ -39,7 +39,7 @@ const Company = styled.div`
     cursor: pointer;
     margin: var(--rem-8px) 0 var(--rem-2px) 0;
     font-family: 'Roboto Flex', sans-serif;
-    font-size: var(--rem-20px);
+    font-size: var(--rem-24px);
 
     @media (hover: hover) {
         &:hover {
@@ -51,10 +51,18 @@ const Company = styled.div`
 const Title = styled.div`
     display: flex;
     flex-direction: column;
-    font-size: var(--rem-14px);
+    font-size: var(--rem-12px);
     margin: 0 0 var(--rem-4px) 0;
+
+    @media (max-width: 400px) {
+        font-size: 0.82rem;
+    }
 `;
 
 const Content = styled.div`
     margin: var(--rem-16px) 0;
+
+    @media (max-width: 400px) {
+        font-size: 0.92rem;
+    }
 `;

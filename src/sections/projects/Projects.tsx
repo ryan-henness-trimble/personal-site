@@ -16,9 +16,9 @@ const Projects = () => {
                             url="https://modus-web-components.trimble.com"
                             gitHubUrl="https://github.com/trimble-oss/modus-web-components">
                             An open-source web component library that adheres to Trimble's Modus
-                            design system. This library provides Modus Elements as web components.
-                            Web components are reusable, encapsulated UI elements that are framework
-                            agnostic (can be implemented in any site).
+                            design system. This library was built using Stencil.js, a web component
+                            development toolchain. Although these components are framework-agnostic,
+                            this project outputs framework-specific companion libraries as well.
                         </Project>
                         <Project
                             title="Personal Site"
@@ -175,4 +175,6 @@ const TitleUnderline = styled.div`
     `}
 `;
 
-const Description = styled.div``;
+const Description = styled.div`
+    font-size: var(--rem-14px);
+`;
