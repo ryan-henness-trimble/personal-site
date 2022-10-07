@@ -170,6 +170,7 @@ const Name = styled.div`
     position: sticky;
     text-transform: uppercase;
     top: 3rem;
+    white-space: nowrap;
     z-index: 8;
 
     ${(props) => props.theme.type === 'dark' && `color: white`}
