@@ -8,7 +8,7 @@ import Experience from './sections/Experience/Experience';
 import Contact from './sections/Contact/Contact';
 import { DarkTheme, LightTheme } from './styles/Theme.models';
 import useScheme from './hooks/useScheme';
-import Projects from './sections/projects/Projects';
+import Projects from './sections/Projects/Projects';
 
 const App = () => {
     const { scheme, handleChangeScheme } = useScheme();
