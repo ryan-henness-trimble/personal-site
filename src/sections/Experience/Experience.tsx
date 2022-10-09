@@ -147,7 +147,7 @@ const MSEI = (props: { id: string }) => {
                     used by a neurostimulator and its controller. The goal of this project was to
                     work toward connecting these neurostimulators to phones/tablets via bluetooth.
                     This would cut costs of the old (and expensive) controllers while also making
-                    the controller more accessible to its users. A big chunk of my work included
+                    the controller more accessible to users. A big chunk of my work went toward
                     developing the library's support for the Android (Xamarin) platform. This
                     included debugging the library and test fixtures as they were ported over.
                 </div>
@@ -176,8 +176,8 @@ const Fiserv = (props: { id: string }) => {
                     This internship was a lot of fun, it was where I learned what it means to be a
                     part of a team. My main project was replacing an in-house code generator with
                     Yeoman. I also worked on a side project to help migrate the team's backlog items
-                    from TFS to VersionOne using the VersionOne API. There was a hackathon during my
-                    time here where I developed a Node.js web app hosted by AWS and Heroku that
+                    from TFS to VersionOne using the VersionOne API. There was a short company
+                    hackathon where I developed a Node.js web app hosted by AWS and Heroku that
                     allowed employees to upload photos to a company-wide slide show.
                 </div>
                 <TechNotes
