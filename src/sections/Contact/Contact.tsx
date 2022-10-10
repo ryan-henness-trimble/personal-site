@@ -15,6 +15,9 @@ const Contact = () => {
                         always open. Feel free to reach out to me anywhere below. I'll try my best
                         to get back to you when I can!
                     </div>
+                    <DescriptionNote>
+                        *I'm not currently looking for new opportunities.
+                    </DescriptionNote>
                     <ContactInfo>
                         <Icons>
                             <Icon
@@ -49,6 +52,10 @@ const Contact = () => {
 };
 
 export default Contact;
+
+const DescriptionNote = styled.div`
+    font-size: 0.7rem;
+`;
 
 const ContactInfo = styled.div`
     display: flex;
